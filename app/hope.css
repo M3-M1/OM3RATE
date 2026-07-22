@@ -103,6 +103,9 @@ body{background:var(--paper)}
   position:relative;
   isolation:isolate;
 }
+.subject-links .subject-card{
+  background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 16%,#eadfc9),color-mix(in srgb,var(--accent) 7%,#eadfc9))!important;
+}
 .subject-card::before{
   background:
     radial-gradient(circle at 12% 22%,color-mix(in srgb,var(--accent) 82%,white) 0 3px,transparent 4px),
@@ -133,10 +136,17 @@ body{background:var(--paper)}
   transition:opacity .25s ease,transform .3s ease;
   z-index:-1;
 }
-.subject-card:hover,.subject-card:focus-visible{
-  background:linear-gradient(120deg,rgba(234,223,201,.96),color-mix(in srgb,var(--accent) 20%,rgba(234,223,201,.96)))!important;
-  border-color:var(--accent)!important;
-  box-shadow:0 14px 34px rgba(48,42,33,.2),0 0 30px color-mix(in srgb,var(--accent) 28%,transparent);
+.subject-links .subject-card:hover,.subject-links .subject-card:focus-visible{
+  animation:subject-color-flow 3s ease-in-out infinite!important;
+  background:
+    linear-gradient(105deg,transparent 0 22%,rgba(255,248,225,.42) 31%,transparent 42%),
+    linear-gradient(135deg,
+      color-mix(in srgb,var(--accent) 86%,#eadfc9) 0%,
+      color-mix(in srgb,var(--accent) 60%,#f2e5cc) 42%,
+      color-mix(in srgb,var(--accent) 78%,#d7c6aa) 100%)!important;
+  background-size:240% 100%,180% 180%!important;
+  border-color:color-mix(in srgb,var(--accent) 86%,#4b4438)!important;
+  box-shadow:0 16px 38px rgba(48,42,33,.24),0 0 36px color-mix(in srgb,var(--accent) 54%,transparent);
   color:var(--ink)!important;
   transform:translateX(10px) translateY(-3px)!important;
 }
@@ -206,6 +216,10 @@ body{background:var(--paper)}
   0%{filter:brightness(.95);transform:scale(.96) rotate(-2deg) translateY(2px)}
   100%{filter:brightness(1.25);transform:scale(1.05) rotate(2deg) translateY(-3px)}
 }
+@keyframes subject-color-flow{
+  0%,100%{background-position:180% 0,0% 50%}
+  50%{background-position:-35% 0,100% 50%}
+}
 @keyframes circuit-pulse{
   from{filter:brightness(.9);transform:scale(.97)}
   to{filter:brightness(1.35);transform:scale(1.04)}
@@ -218,5 +232,6 @@ body{background:var(--paper)}
   .site-shell:before,.om3-shell:before,.site-shell:after{animation-duration:60s!important}
   .robot-orbit{animation-duration:45s!important}
   .subject-card:hover::before,.subject-card:focus-visible::before{animation:none}
+  .subject-links .subject-card:hover,.subject-links .subject-card:focus-visible{animation:none!important}
   .subject-card:nth-child(4):hover b::before,.subject-card:nth-child(4):focus-visible b::before{animation:none}
 }
