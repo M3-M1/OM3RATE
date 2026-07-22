@@ -4,11 +4,21 @@ import { useState } from "react";
 
 type SubjectId = "matematica" | "fisica" | "robotica" | "digital";
 
+type TimelineEntry = {
+  code: string;
+  stage: string;
+  title: string;
+  description: string;
+  current?: boolean;
+};
+
 type ClassRecord = {
   name: string;
   path: string;
   summary: string;
   tags: string[];
+  status?: string;
+  timeline?: TimelineEntry[];
 };
 
 type SubjectRecord = {
@@ -17,6 +27,28 @@ type SubjectRecord = {
   thesis: string;
   years: Record<string, ClassRecord[]>;
 };
+
+const accessibilityTimeline: TimelineEntry[] = [
+  {
+    code: "REGISTRO 01",
+    stage: "Observar e Maturar",
+    title: "O desafio foi lançado",
+    description: "A turma começou a investigar como Física e Robótica podem responder a necessidades reais de mobilidade e acessibilidade.",
+  },
+  {
+    code: "REGISTRO 02",
+    stage: "Modelar",
+    title: "Ideias em construção",
+    description: "Os grupos delimitaram problemas, discutiram usuários e começaram a desenhar soluções, estruturas e mecanismos.",
+  },
+  {
+    code: "AGORA",
+    stage: "Materializar e Testar",
+    title: "Protótipos em andamento",
+    description: "Os projetos seguem em desenvolvimento, com escolhas de materiais, montagem de componentes e primeiros testes de funcionamento.",
+    current: true,
+  },
+];
 
 const subjects: Record<SubjectId, SubjectRecord> = {
   matematica: {
@@ -42,9 +74,11 @@ const subjects: Record<SubjectId, SubjectRecord> = {
       "2026": [
         {
           name: "2ºB",
-          path: "Física e Tecnociência",
-          summary: "Movimento, máquinas, trabalho mecânico, eletricidade e acessibilidade.",
-          tags: ["τ", "energia", "mobilidade"],
+          path: "Feira de Acessibilidade e Movimento",
+          summary: "Projeto interdisciplinar em que a turma investiga necessidades reais e desenvolve soluções envolvendo movimento, máquinas, energia e acessibilidade.",
+          tags: ["τ", "acessibilidade", "projeto em andamento"],
+          status: "PROJETO EM DESENVOLVIMENTO",
+          timeline: accessibilityTimeline,
         },
       ],
     },
@@ -57,9 +91,11 @@ const subjects: Record<SubjectId, SubjectRecord> = {
       "2026": [
         {
           name: "2ºB",
-          path: "Robótica e acessibilidade",
-          summary: "Óculos, coletes, bengalas e sistemas de mobilidade com sensores e resposta tátil.",
-          tags: ["Arduino", "sensores", "autonomia"],
+          path: "Feira de Acessibilidade e Movimento",
+          summary: "Protótipos assistivos desenvolvidos pela turma para transformar observação, pesquisa e modelagem em soluções que possam ser testadas.",
+          tags: ["robótica", "autonomia", "projeto em andamento"],
+          status: "PROJETO EM DESENVOLVIMENTO",
+          timeline: accessibilityTimeline,
         },
       ],
     },
@@ -286,7 +322,21 @@ export default function Home() {
               <h3>{selectedClass.path}</h3>
               <p>{selectedClass.summary}</p>
               <div>{selectedClass.tags.map((tag) => <span key={tag}>#{tag}</span>)}</div>
-              <strong className="record-status">REGISTRO EM CONSTRUÇÃO CONTÍNUA</strong>
+              {selectedClass.timeline && (
+                <section className="project-timeline" aria-label={`Linha do tempo de ${selectedClass.path}`}>
+                  <header><span>LINHA DO TEMPO</span><small>deslize para acompanhar →</small></header>
+                  <div className="timeline-track">
+                    {selectedClass.timeline.map((entry) => (
+                      <article className={entry.current ? "is-current" : ""} key={entry.code}>
+                        <div><span>{entry.code}</span><i>{entry.stage}</i></div>
+                        <h4>{entry.title}</h4>
+                        <p>{entry.description}</p>
+                      </article>
+                    ))}
+                  </div>
+                </section>
+              )}
+              <strong className="record-status">{selectedClass.status ?? "REGISTRO EM CONSTRUÇÃO CONTÍNUA"}</strong>
             </article>
           </div>
         </div>
