@@ -155,6 +155,39 @@ body{background:var(--paper)}
 }
 .subject-card b,.subject-card i{transition:filter .25s ease,transform .25s ease}
 
+/* Ícone de placa-mãe para Educação Digital, substituindo o antigo "01". */
+.subject-card:nth-child(4) b{
+  align-items:center;
+  color:transparent!important;
+  display:flex;
+  height:42px;
+  justify-content:center;
+  position:relative;
+  width:48px;
+}
+.subject-card:nth-child(4) b::before{
+  background:
+    linear-gradient(var(--accent),var(--accent)) 7px 8px/24px 2px no-repeat,
+    linear-gradient(var(--accent),var(--accent)) 7px 30px/31px 2px no-repeat,
+    linear-gradient(var(--accent),var(--accent)) 10px 10px/2px 20px no-repeat,
+    linear-gradient(var(--accent),var(--accent)) 29px 8px/2px 13px no-repeat,
+    linear-gradient(var(--accent),var(--accent)) 36px 18px/2px 14px no-repeat,
+    radial-gradient(circle,var(--accent) 0 3px,transparent 4px) 4px 4px/10px 10px no-repeat,
+    radial-gradient(circle,var(--accent) 0 3px,transparent 4px) 26px 17px/10px 10px no-repeat,
+    radial-gradient(circle,var(--accent) 0 3px,transparent 4px) 33px 4px/10px 10px no-repeat,
+    radial-gradient(circle,var(--accent) 0 3px,transparent 4px) 33px 28px/10px 10px no-repeat;
+  border:2px solid var(--accent);
+  clip-path:polygon(0 0,78% 0,100% 22%,100% 100%,22% 100%,0 78%);
+  content:"";
+  height:38px;
+  position:absolute;
+  width:44px;
+}
+.subject-card:nth-child(4):hover b::before,.subject-card:nth-child(4):focus-visible b::before{
+  animation:circuit-pulse 1.15s ease-in-out infinite alternate;
+  box-shadow:0 0 12px color-mix(in srgb,var(--accent) 80%,white),inset 0 0 10px color-mix(in srgb,var(--accent) 35%,transparent);
+}
+
 .site-footer span:last-child::after,.om3-footer .copyright::after{content:""}
 @keyframes hope-drift{
   0%{background-position:0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0}
@@ -173,6 +206,10 @@ body{background:var(--paper)}
   0%{filter:brightness(.95);transform:scale(.96) rotate(-2deg) translateY(2px)}
   100%{filter:brightness(1.25);transform:scale(1.05) rotate(2deg) translateY(-3px)}
 }
+@keyframes circuit-pulse{
+  from{filter:brightness(.9);transform:scale(.97)}
+  to{filter:brightness(1.35);transform:scale(1.04)}
+}
 @media(max-width:800px){
   .robot-orbit.orbit-a{height:320px;width:450px}
   .robot-orbit.orbit-b{height:235px;width:380px}
@@ -181,4 +218,5 @@ body{background:var(--paper)}
   .site-shell:before,.om3-shell:before,.site-shell:after{animation-duration:60s!important}
   .robot-orbit{animation-duration:45s!important}
   .subject-card:hover::before,.subject-card:focus-visible::before{animation:none}
+  .subject-card:nth-child(4):hover b::before,.subject-card:nth-child(4):focus-visible b::before{animation:none}
 }
