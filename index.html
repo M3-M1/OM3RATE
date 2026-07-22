@@ -9,8 +9,88 @@
   <link rel="stylesheet" href="app/globals.css">
   <style>
     html{scroll-behavior:smooth} body{margin:0}.static-hidden{display:none!important}
-    .static-nav a{color:inherit;text-decoration:none}.route-readout strong{display:block}
+    .route-readout strong{display:block}
     .subject-node,.year-buttons button,.class-tabs button{cursor:pointer}
+
+    .static-nav{
+      align-items:stretch;
+      display:grid!important;
+      gap:6px!important;
+      grid-template-columns:repeat(4,minmax(112px,1fr));
+      perspective:700px;
+    }
+    .static-nav a{
+      --nav-accent:var(--steel);
+      align-items:center;
+      background:rgba(243,240,232,.56);
+      border:1px solid var(--line);
+      clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));
+      color:#50565a;
+      display:flex;
+      font-family:var(--font-mono);
+      font-size:8px;
+      justify-content:center;
+      letter-spacing:.09em;
+      min-height:46px;
+      min-width:112px;
+      overflow:hidden;
+      padding:12px 15px;
+      position:relative;
+      text-decoration:none;
+      text-transform:uppercase;
+      transform:translateZ(0);
+      transition:color .25s ease,border-color .25s ease,box-shadow .25s ease,transform .25s ease,opacity .25s ease;
+      isolation:isolate;
+    }
+    .static-nav a:nth-child(2){--nav-accent:var(--lilac)}
+    .static-nav a:nth-child(3){--nav-accent:var(--brass);min-width:140px}
+    .static-nav a:nth-child(4){--nav-accent:var(--sage)}
+    .static-nav a::before{
+      background:linear-gradient(135deg,var(--ink) 0%,var(--ink-2) 72%,var(--nav-accent) 180%);
+      content:"";
+      inset:0;
+      position:absolute;
+      transform:translateY(105%);
+      transition:transform .28s cubic-bezier(.2,.8,.2,1);
+      z-index:-1;
+    }
+    .static-nav a::after{
+      border-left:1px solid var(--nav-accent);
+      border-top:1px solid var(--nav-accent);
+      content:"";
+      height:8px;
+      position:absolute;
+      right:5px;
+      top:5px;
+      transition:height .25s ease,width .25s ease,transform .25s ease;
+      width:8px;
+    }
+    .static-nav a:hover,
+    .static-nav a:focus-visible{
+      border-color:var(--nav-accent);
+      box-shadow:0 10px 24px rgba(23,25,27,.13);
+      color:var(--bone);
+      transform:translateY(-4px) rotateX(2deg);
+    }
+    .static-nav a:hover::before,
+    .static-nav a:focus-visible::before{transform:translateY(0)}
+    .static-nav a:hover::after,
+    .static-nav a:focus-visible::after{height:15px;transform:rotate(90deg);width:15px}
+    .static-nav:hover a:not(:hover){opacity:.58;transform:scale(.97)}
+    @media (max-width:900px){
+      .static-nav{grid-template-columns:repeat(4,auto)}
+      .static-nav a{min-width:0;padding:11px 10px}
+      .static-nav a:nth-child(3){min-width:0}
+    }
+    @media (max-width:760px){
+      .static-nav{gap:3px!important}
+      .static-nav a{font-size:7px;min-height:40px;padding:9px 7px}
+      .static-nav a:nth-child(2){display:none}
+      .static-nav a::after{display:none}
+    }
+    @media (max-width:520px){
+      .static-nav a:nth-child(3){display:none}
+    }
   </style>
 </head>
 <body>
