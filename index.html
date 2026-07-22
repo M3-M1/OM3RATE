@@ -8,9 +8,8 @@
   <link rel="icon" href="public/favicon.svg">
   <link rel="stylesheet" href="app/globals.css">
   <style>
-    html{scroll-behavior:smooth} body{margin:0}.static-hidden{display:none!important}
-    .route-readout strong{display:block}
-    .subject-node,.year-buttons button,.class-tabs button{cursor:pointer}
+    html{scroll-behavior:smooth}body{margin:0}.static-hidden{display:none!important}
+    .route-readout strong{display:block}.subject-node,.year-buttons button,.class-tabs button{cursor:pointer}
 
     .static-nav{align-items:stretch;display:grid!important;gap:8px!important;grid-template-columns:repeat(4,minmax(145px,1fr));perspective:700px}
     .static-nav a{--nav-accent:var(--steel);align-items:center;background:rgba(243,240,232,.56);border:1px solid var(--line);clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));color:#363b3f;display:flex;font-family:var(--font-mono);font-size:15px!important;font-weight:700;justify-content:center;letter-spacing:.04em;line-height:1.35;min-height:64px;min-width:145px;overflow:hidden;padding:15px 20px;position:relative;text-decoration:none;text-transform:uppercase;transform:translateZ(0);transition:color .25s ease,border-color .25s ease,box-shadow .25s ease,transform .25s ease,opacity .25s ease;isolation:isolate}
@@ -20,26 +19,37 @@
     .static-nav a:hover,.static-nav a:focus-visible{border-color:var(--nav-accent);box-shadow:0 10px 24px rgba(23,25,27,.13);color:var(--bone);transform:translateY(-4px) rotateX(2deg)}
     .static-nav a:hover::before,.static-nav a:focus-visible::before{transform:translateY(0)}.static-nav a:hover::after,.static-nav a:focus-visible::after{height:17px;transform:rotate(90deg);width:17px}.static-nav:hover a:not(:hover){opacity:.58;transform:scale(.97)}
 
-    /* Acessibilidade visual: os textos destacados nas imagens recebem tamanho de leitura real. */
+    /* Composição tipográfica principal, feita em HTML e CSS. */
+    .street-title{display:grid!important;font-family:var(--font-serif)!important;grid-template-areas:"brand brand" "accent action" "accent future";grid-template-columns:minmax(105px,.28fr) 1fr;line-height:.78!important;margin:12px 0 40px!important;max-width:790px;overflow:visible;position:relative;text-transform:uppercase}
+    .street-title .street-brand{background:var(--steel);box-shadow:10px 10px 0 var(--lilac);color:var(--bone)!important;font-family:var(--font-serif)!important;font-size:clamp(42px,5.8vw,78px)!important;font-weight:700!important;grid-area:brand;justify-self:start;letter-spacing:.055em!important;line-height:1!important;margin:0 0 20px 8%;padding:10px 20px 12px;position:relative;transform:rotate(-1.3deg);white-space:nowrap}
+    .street-title .street-brand::after{background:var(--brass);content:"";height:8px;position:absolute;right:-48px;top:50%;transform:rotate(-14deg);width:42px}
+    .street-title .street-accent{align-self:center;color:var(--ink)!important;font-family:var(--font-serif)!important;font-size:clamp(145px,18vw,245px)!important;font-weight:400!important;grid-area:accent;letter-spacing:-.1em!important;line-height:.7!important;margin-left:-.04em;transform:translateY(-.02em)}
+    .street-title .street-action{align-self:end;color:var(--ink)!important;font-family:var(--font-serif)!important;font-size:clamp(68px,9.2vw,126px)!important;font-weight:400!important;grid-area:action;letter-spacing:-.075em!important;line-height:.78!important;margin-left:-.08em;white-space:nowrap}
+    .street-title .street-o{color:var(--steel);display:inline-block;font:inherit;transform:translate(.05em,-.05em) rotate(3deg)}
+    .street-title .street-future{align-self:start;color:var(--ink)!important;font-family:var(--font-serif)!important;font-size:clamp(82px,11.3vw,154px)!important;font-weight:400!important;grid-area:future;letter-spacing:-.085em!important;line-height:.72!important;margin-left:-.38em;margin-top:.02em;white-space:nowrap}
+    .street-title .street-dot{color:var(--brass);font:inherit}
+
+    /* Mantém o primeiro título dominante e reduz os títulos secundários. */
+    .about-heading h2,.archive-heading h2,.contact-copy h2,.acronym-heading h2{font-size:clamp(32px,3.4vw,48px)!important;line-height:1.04!important}
+
+    /* Legibilidade ampliada. */
     .eyebrow,.section-index{font-size:16px!important;font-weight:700!important;line-height:1.55!important;letter-spacing:.07em!important}
     .wordmark small,.is-compact .wordmark small{font-size:13px!important;line-height:1.45!important;letter-spacing:.07em!important}
-    .primary-button{font-size:16px!important;font-weight:700!important;line-height:1.45!important;padding:20px 24px!important}
-    .hero-actions>span{font-size:14px!important;line-height:1.65!important}
+    .primary-button{font-size:16px!important;font-weight:700!important;line-height:1.45!important;padding:20px 24px!important}.hero-actions>span{font-size:14px!important;line-height:1.65!important}
     .about-heading>p,.archive-heading>div>p,.contact-copy>p{font-size:20px!important;line-height:1.7!important;max-width:620px!important}
-    .about-grid article{min-height:285px!important;padding:34px!important}
-    .about-grid span{font-size:14px!important}.about-grid h3{font-size:31px!important;line-height:1.2!important;margin-top:72px!important}.about-grid p{font-size:18px!important;line-height:1.7!important;max-width:410px!important}
+    .about-grid article{min-height:285px!important;padding:34px!important}.about-grid span{font-size:14px!important}.about-grid h3{font-size:28px!important;line-height:1.2!important;margin-top:72px!important}.about-grid p{font-size:18px!important;line-height:1.7!important;max-width:410px!important}
     .acronym-grid article{min-height:320px!important;padding:24px 18px!important}.acronym-grid article>span{font-size:13px!important}.acronym-grid strong{font-size:64px!important}.acronym-grid h3{font-size:19px!important;line-height:1.35!important}.acronym-grid p{font-size:15px!important;line-height:1.6!important}
     .route-readout span,.panel-label span{font-size:14px!important;font-weight:700!important}.route-readout strong,.panel-label strong{font-size:16px!important;line-height:1.55!important}
     .subject-node{max-width:245px!important;min-height:66px!important;padding:15px 18px!important}.subject-node span{font-size:30px!important}.subject-node strong{font-size:16px!important;line-height:1.35!important}
     .robot-caption{min-height:74px!important;width:390px!important;padding:16px 20px!important}.robot-caption p{font-size:18px!important;line-height:1.5!important}
     .year-panel,.class-panel{padding:30px!important}.year-buttons button{min-height:150px!important;padding:20px!important}.year-buttons button i,.year-panel>p{font-size:14px!important;line-height:1.6!important}.year-buttons button span{font-size:29px!important}.year-buttons button strong{font-size:54px!important}
     .class-tabs button{min-height:125px!important;padding:18px!important}.class-tabs button span{font-size:14px!important}.class-tabs button strong{font-size:30px!important}.class-tabs button small{font-size:15px!important;line-height:1.5!important}
-    .class-record{min-height:355px!important;padding:32px 32px 64px!important}.record-code{font-size:14px!important}.class-record h3{font-size:40px!important;line-height:1.1!important}.class-record p{font-size:18px!important;line-height:1.7!important}.class-record>div span{font-size:13px!important;padding:8px 10px!important}.record-status{bottom:24px!important;left:32px!important;font-size:13px!important}
+    .class-record{min-height:355px!important;padding:32px 32px 64px!important}.record-code{font-size:14px!important}.class-record h3{font-size:34px!important;line-height:1.1!important}.class-record p{font-size:18px!important;line-height:1.7!important}.class-record>div span{font-size:13px!important;padding:8px 10px!important}.record-status{bottom:24px!important;left:32px!important;font-size:13px!important}
     .contact-card dt{font-size:14px!important}.contact-card dd{font-size:18px!important}.site-footer{font-size:15px!important;line-height:1.7!important}
 
-    @media(max-width:1100px){.static-nav{grid-template-columns:repeat(4,auto)}.static-nav a{font-size:13px!important;min-width:0;padding:13px 12px}.static-nav a:nth-child(3){min-width:0}.acronym-grid h3{font-size:17px!important}.acronym-grid p{font-size:14px!important}}
-    @media(max-width:760px){.static-nav{gap:4px!important}.static-nav a{font-size:12px!important;min-height:48px;padding:10px 8px}.static-nav a:nth-child(2){display:none}.static-nav a::after{display:none}.eyebrow,.section-index{font-size:14px!important}.about-heading>p,.archive-heading>div>p,.contact-copy>p{font-size:18px!important}.about-grid h3{font-size:27px!important}.about-grid p{font-size:17px!important}.subject-node{max-width:175px!important;padding:12px!important}.subject-node strong{font-size:14px!important}.robot-caption{width:330px!important}.robot-caption p{font-size:16px!important}.class-record h3{font-size:34px!important}}
-    @media(max-width:520px){.static-nav a:nth-child(3){display:none}}
+    @media(max-width:1100px){.static-nav{grid-template-columns:repeat(4,auto)}.static-nav a{font-size:13px!important;min-width:0;padding:13px 12px}.static-nav a:nth-child(3){min-width:0}.street-title{max-width:720px}.acronym-grid h3{font-size:17px!important}.acronym-grid p{font-size:14px!important}}
+    @media(max-width:760px){.static-nav{gap:4px!important}.static-nav a{font-size:12px!important;min-height:48px;padding:10px 8px}.static-nav a:nth-child(2){display:none}.static-nav a::after{display:none}.street-title{grid-template-columns:82px 1fr;margin-top:5px!important}.street-title .street-brand{font-size:clamp(34px,10vw,54px)!important;margin-left:0;padding:8px 12px}.street-title .street-accent{font-size:clamp(105px,29vw,165px)!important}.street-title .street-action{font-size:clamp(50px,14vw,80px)!important}.street-title .street-future{font-size:clamp(60px,17vw,98px)!important;margin-left:-.26em}.eyebrow,.section-index{font-size:14px!important}.about-heading>p,.archive-heading>div>p,.contact-copy>p{font-size:18px!important}.about-grid h3{font-size:27px!important}.about-grid p{font-size:17px!important}.subject-node{max-width:175px!important;padding:12px!important}.subject-node strong{font-size:14px!important}.robot-caption{width:330px!important}.robot-caption p{font-size:16px!important}.class-record h3{font-size:30px!important}}
+    @media(max-width:520px){.static-nav a:nth-child(3){display:none}.street-title{grid-template-columns:68px 1fr}.street-title .street-brand::after{display:none}}
   </style>
 </head>
 <body>
@@ -47,21 +57,89 @@
   <div class="moving-grid" aria-hidden="true"></div>
   <div class="ambient-orbit orbit-one" aria-hidden="true"></div>
   <div class="ambient-orbit orbit-two" aria-hidden="true"></div>
+
   <header class="topbar">
-    <a href="#inicio" class="brand-link" aria-label="OM3RATE, início"><div class="combination-mark is-compact"><svg class="mark-symbol" viewBox="0 0 112 96" aria-hidden="true"><path d="M16 18H76L98 40V76H38L16 54Z" class="mark-shell"></path><path d="M16 18L39 41M76 18L55 39M98 40L78 60M38 76L57 57" class="mark-construction"></path><path d="M28 62V34L42 51L56 34V62M68 35H86L72 48H86L68 62" class="mark-monogram"></path><path d="M7 80L105 10" class="mark-vector"></path><circle cx="31" cy="73" r="3.5" class="mark-node node-sage"></circle><circle cx="46" cy="73" r="3.5" class="mark-node node-lilac"></circle><circle cx="61" cy="73" r="3.5" class="mark-node node-steel"></circle></svg><div class="wordmark"><div class="wordmark-line"><span>OM</span><b>3</b><span>RATE</span></div><small>mapa de projetos e práticas</small></div></div></a>
-    <nav class="static-nav" aria-label="Navegação principal"><a href="#quem-somos">Quem somos</a><a href="#sigla">A sigla</a><a href="#arquivo">Mapa de projetos</a><a href="#contato">Contato</a></nav>
+    <a href="#inicio" class="brand-link" aria-label="OM3RATE, início">
+      <div class="combination-mark is-compact">
+        <svg class="mark-symbol" viewBox="0 0 112 96" aria-hidden="true">
+          <path d="M16 18H76L98 40V76H38L16 54Z" class="mark-shell"></path>
+          <path d="M16 18L39 41M76 18L55 39M98 40L78 60M38 76L57 57" class="mark-construction"></path>
+          <path d="M28 62V34L42 51L56 34V62M68 35H86L72 48H86L68 62" class="mark-monogram"></path>
+          <path d="M7 80L105 10" class="mark-vector"></path>
+          <circle cx="31" cy="73" r="3.5" class="mark-node node-sage"></circle>
+          <circle cx="46" cy="73" r="3.5" class="mark-node node-lilac"></circle>
+          <circle cx="61" cy="73" r="3.5" class="mark-node node-steel"></circle>
+        </svg>
+        <div class="wordmark"><div class="wordmark-line"><span>OM</span><b>3</b><span>RATE</span></div><small>mapa de projetos e práticas</small></div>
+      </div>
+    </a>
+    <nav class="static-nav" aria-label="Navegação principal">
+      <a href="#quem-somos">Quem somos</a><a href="#sigla">A sigla</a><a href="#arquivo">Mapa de projetos</a><a href="#contato">Contato</a>
+    </nav>
   </header>
-  <section class="hero section-frame" id="inicio"><div class="hero-copy"><p class="eyebrow">método autoral · mapa pedagógico · escola em movimento</p><div class="combination-mark"><svg class="mark-symbol" viewBox="0 0 112 96" aria-hidden="true"><path d="M16 18H76L98 40V76H38L16 54Z" class="mark-shell"></path><path d="M16 18L39 41M76 18L55 39M98 40L78 60M38 76L57 57" class="mark-construction"></path><path d="M28 62V34L42 51L56 34V62M68 35H86L72 48H86L68 62" class="mark-monogram"></path><path d="M7 80L105 10" class="mark-vector"></path></svg><div class="wordmark"><div class="wordmark-line"><span>OM</span><b>3</b><span>RATE</span></div><small>mapa de projetos e práticas</small></div></div><h1><span>OM3RATE</span> É<br>FORJAR O FUTURO.</h1><p class="hero-text">Ideias não nascem prontas. Ganham método, matéria, atrito e autoria. Assim, podem devolver alguma coisa ao mundo.</p><div class="hero-actions"><a class="primary-button" href="#arquivo">Consultar o mapa de projetos <span>↘</span></a><span>Colégio Estadual Cívico-Militar<br><strong>Alcides Munhoz</strong></span></div></div><div class="hero-field" aria-hidden="true"><div class="field-ring ring-a"></div><div class="field-ring ring-b"></div><span class="formula formula-a">τ = F · d · cos θ</span><span class="formula formula-b">∑ ideia / teste → evidência</span><span class="field-label">M³ / MATÉRIA · MÉTODO · MOVIMENTO</span><div class="forge-core"><span>O</span><strong>M³</strong><i>R A T E</i></div></div></section>
+
+  <section class="hero section-frame" id="inicio">
+    <div class="hero-copy">
+      <p class="eyebrow">método autoral · mapa pedagógico · escola em movimento</p>
+      <div class="combination-mark">
+        <svg class="mark-symbol" viewBox="0 0 112 96" aria-hidden="true"><path d="M16 18H76L98 40V76H38L16 54Z" class="mark-shell"></path><path d="M16 18L39 41M76 18L55 39M98 40L78 60M38 76L57 57" class="mark-construction"></path><path d="M28 62V34L42 51L56 34V62M68 35H86L72 48H86L68 62" class="mark-monogram"></path><path d="M7 80L105 10" class="mark-vector"></path></svg>
+        <div class="wordmark"><div class="wordmark-line"><span>OM</span><b>3</b><span>RATE</span></div><small>mapa de projetos e práticas</small></div>
+      </div>
+      <h1 class="street-title" aria-label="OM3RATE é forjar o futuro">
+        <span class="street-brand">OM3RATE</span>
+        <span class="street-accent">É</span>
+        <span class="street-action">FORJAR <span class="street-o">O</span></span>
+        <span class="street-future">FUTURO<span class="street-dot">.</span></span>
+      </h1>
+      <p class="hero-text">Ideias não nascem prontas. Ganham método, matéria, atrito e autoria. Assim, podem devolver alguma coisa ao mundo.</p>
+      <div class="hero-actions"><a class="primary-button" href="#arquivo">Consultar o mapa de projetos <span>↘</span></a><span>Colégio Estadual Cívico-Militar<br><strong>Alcides Munhoz</strong></span></div>
+    </div>
+    <div class="hero-field" aria-hidden="true"><div class="field-ring ring-a"></div><div class="field-ring ring-b"></div><span class="formula formula-a">τ = F · d · cos θ</span><span class="formula formula-b">∑ ideia / teste → evidência</span><span class="field-label">M³ / MATÉRIA · MÉTODO · MOVIMENTO</span><div class="forge-core"><span>O</span><strong>M³</strong><i>R A T E</i></div></div>
+  </section>
+
   <div class="motion-ribbon" aria-hidden="true"><span>OBSERVAR · MATURAR · MODELAR · MATERIALIZAR · REFLETIR · APRIMORAR · TESTAR · EVOLUIR · </span><span>OBSERVAR · MATURAR · MODELAR · MATERIALIZAR · REFLETIR · APRIMORAR · TESTAR · EVOLUIR · </span></div>
-  <section class="about-section section-frame" id="quem-somos"><div class="section-index">01 / QUEM SOMOS</div><div class="about-heading"><h2>UM PROJETO DE VISIBILIDADE<br>PARA O QUE A ESCOLA <em>REALMENTE FAZ.</em></h2><p>O OM3RATE reúne práticas, métodos e criações para que trabalhos significativos não desapareçam depois da nota, da feira ou do fim do trimestre.</p></div><div class="about-grid"><article><span>01</span><h3>Uma professora que documenta</h3><p>Planejamento, mediação e registro transformados em memória pedagógica compartilhável.</p></article><article><span>02</span><h3>Estudantes que assinam</h3><p>Os projetos aparecem como produção de quem investigou, construiu, errou e refez.</p></article><article><span>03</span><h3>Uma escola que aparece</h3><p>O cotidiano escolar ganha presença pública como lugar de conhecimento e invenção.</p></article></div></section>
-  <section class="acronym-section" id="sigla"><div class="section-frame"><div class="section-index light">02 / A SIGLA</div><div class="acronym-heading"><h2>OITO MOVIMENTOS.<br>NENHUMA RECEITA.</h2><span>O → M³ → R → A → T → E ↺</span></div><div class="acronym-grid"><article><span>01</span><strong>O</strong><h3>Observar</h3><p>perceber antes de responder</p></article><article class="is-m3"><span>02</span><strong>M</strong><h3>Maturar</h3><p>dar tempo à ideia</p></article><article class="is-m3"><span>03</span><strong>M</strong><h3>Modelar</h3><p>desenhar o pensamento</p></article><article class="is-m3"><span>04</span><strong>M</strong><h3>Materializar</h3><p>fazer a ideia existir</p></article><article><span>05</span><strong>R</strong><h3>Refletir</h3><p>ler o percurso</p></article><article><span>06</span><strong>A</strong><h3>Aprimorar</h3><p>melhorar com intenção</p></article><article><span>07</span><strong>T</strong><h3>Testar</h3><p>colocar à prova</p></article><article><span>08</span><strong>E</strong><h3>Evoluir</h3><p>abrir o próximo ciclo</p></article></div></div></section>
-  <section class="archive-section section-frame" id="arquivo"><div class="section-index">03 / MAPA DE PROJETOS</div><div class="archive-heading"><div><h2>ESCOLHA UMA MATÉRIA.<br><em>ENTRE NO ANO.</em></h2><p>O robô funciona como guardião do mapa de projetos: astrolábio para medir o mundo; livro para preservar o que foi aprendido.</p></div><div class="route-readout"><span>ROTA ATUAL</span><strong id="route">Matemática / 2026 / 1ºB</strong></div></div><div class="knowledge-machine"><div class="subject-stage" role="tablist" aria-label="Escolha uma matéria"><button class="subject-node node-0 is-active" data-subject="matematica"><span>∑</span><strong>Matemática</strong></button><button class="subject-node node-1" data-subject="fisica"><span>τ</span><strong>Física e Tecnociência</strong></button><button class="subject-node node-2" data-subject="robotica"><span>⌬</span><strong>Robótica</strong></button><button class="subject-node node-3" data-subject="digital"><span>01</span><strong>Educação Digital</strong></button><div class="robot-frame"><div class="robot-halo" aria-hidden="true"></div><img src="public/robot-astrolabe.webp" alt="Robô futurístico segurando um astrolábio e um livro aberto"><div class="robot-caption"><span>∑</span><p>Modelar o que o olhar sozinho não alcança.</p></div></div></div><aside class="year-panel"><div class="panel-label"><span>ETAPA 02</span><strong>ANO</strong></div><div class="year-buttons" id="years"></div><p>Os anos exibidos dependem da matéria escolhida.</p></aside><div class="class-panel"><div class="panel-label"><span>ETAPA 03</span><strong>TURMAS</strong></div><div class="class-tabs" id="classes"></div><article class="class-record" id="record" aria-live="polite"></article></div></div></section>
+
+  <section class="about-section section-frame" id="quem-somos">
+    <div class="section-index">01 / QUEM SOMOS</div>
+    <div class="about-heading"><h2>UM PROJETO DE VISIBILIDADE<br>PARA O QUE A ESCOLA <em>REALMENTE FAZ.</em></h2><p>O OM3RATE reúne práticas, métodos e criações para que trabalhos significativos não desapareçam depois da nota, da feira ou do fim do trimestre.</p></div>
+    <div class="about-grid"><article><span>01</span><h3>Uma professora que documenta</h3><p>Planejamento, mediação e registro transformados em memória pedagógica compartilhável.</p></article><article><span>02</span><h3>Estudantes que assinam</h3><p>Os projetos aparecem como produção de quem investigou, construiu, errou e refez.</p></article><article><span>03</span><h3>Uma escola que aparece</h3><p>O cotidiano escolar ganha presença pública como lugar de conhecimento e invenção.</p></article></div>
+  </section>
+
+  <section class="acronym-section" id="sigla"><div class="section-frame">
+    <div class="section-index light">02 / A SIGLA</div><div class="acronym-heading"><h2>OITO MOVIMENTOS.<br>NENHUMA RECEITA.</h2><span>O → M³ → R → A → T → E ↺</span></div>
+    <div class="acronym-grid"><article><span>01</span><strong>O</strong><h3>Observar</h3><p>perceber antes de responder</p></article><article class="is-m3"><span>02</span><strong>M</strong><h3>Maturar</h3><p>dar tempo à ideia</p></article><article class="is-m3"><span>03</span><strong>M</strong><h3>Modelar</h3><p>desenhar o pensamento</p></article><article class="is-m3"><span>04</span><strong>M</strong><h3>Materializar</h3><p>fazer a ideia existir</p></article><article><span>05</span><strong>R</strong><h3>Refletir</h3><p>ler o percurso</p></article><article><span>06</span><strong>A</strong><h3>Aprimorar</h3><p>melhorar com intenção</p></article><article><span>07</span><strong>T</strong><h3>Testar</h3><p>colocar à prova</p></article><article><span>08</span><strong>E</strong><h3>Evoluir</h3><p>abrir o próximo ciclo</p></article></div>
+  </div></section>
+
+  <section class="archive-section section-frame" id="arquivo">
+    <div class="section-index">03 / MAPA DE PROJETOS</div>
+    <div class="archive-heading"><div><h2>ESCOLHA UMA MATÉRIA.<br><em>ENTRE NO ANO.</em></h2><p>O robô funciona como guardião do mapa de projetos: astrolábio para medir o mundo; livro para preservar o que foi aprendido.</p></div><div class="route-readout"><span>ROTA ATUAL</span><strong id="route">Matemática / 2026 / 1ºB</strong></div></div>
+    <div class="knowledge-machine">
+      <div class="subject-stage" role="tablist" aria-label="Escolha uma matéria">
+        <button class="subject-node node-0 is-active" data-subject="matematica"><span>∑</span><strong>Matemática</strong></button>
+        <button class="subject-node node-1" data-subject="fisica"><span>τ</span><strong>Física e Tecnociência</strong></button>
+        <button class="subject-node node-2" data-subject="robotica"><span>⌬</span><strong>Robótica</strong></button>
+        <button class="subject-node node-3" data-subject="digital"><span>01</span><strong>Educação Digital</strong></button>
+        <div class="robot-frame"><div class="robot-halo" aria-hidden="true"></div><img src="public/robot-astrolabe.webp" alt="Robô futurístico segurando um astrolábio e um livro aberto"><div class="robot-caption"><span>∑</span><p>Modelar o que o olhar sozinho não alcança.</p></div></div>
+      </div>
+      <aside class="year-panel"><div class="panel-label"><span>ETAPA 02</span><strong>ANO</strong></div><div class="year-buttons" id="years"></div><p>Os anos exibidos dependem da matéria escolhida.</p></aside>
+      <div class="class-panel"><div class="panel-label"><span>ETAPA 03</span><strong>TURMAS</strong></div><div class="class-tabs" id="classes"></div><article class="class-record" id="record" aria-live="polite"></article></div>
+    </div>
+  </section>
+
   <section class="contact-section" id="contato"><div class="section-frame contact-inner"><div class="contact-copy"><div class="section-index light">04 / CONTATO</div><h2>CONVERSAS TAMBÉM<br>MOVEM PROJETOS.</h2><p>Para conhecer as práticas, propor trocas pedagógicas ou acompanhar o mapa de projetos, entre em contato com a autora.</p></div><div class="contact-card"><dl><div><dt>PROJETO</dt><dd>OM3RATE</dd></div><div><dt>AUTORIA</dt><dd>Profª Mérilyn Millena Moleta</dd></div><div><dt>ESCOLA</dt><dd>Colégio Estadual Cívico-Militar Alcides Munhoz</dd></div><div><dt>CONTATO DIRETO</dt><dd><a href="mailto:merilyn.millena1825@gmail.com">merilyn.millena1825@gmail.com</a></dd></div></dl></div></div></section>
   <footer class="site-footer"><p>OM3RATE foi idealizado e programado por <strong>Profª Mérilyn Millena Moleta</strong>, com a participação dos estudantes que transformam as ideias em trabalho real.</p><span>© 2026 · Todos os direitos reservados.</span></footer>
 </main>
 <script>
-const data={matematica:{name:'Matemática',years:{2026:[{t:'1ºB',title:'Resolução de Problemas',text:'Água, gráficos e vídeos de sessenta segundos para transformar dados em argumento.',tags:['gráficos','sustentabilidade','comunicação']}]}},fisica:{name:'Física e Tecnociência',years:{2026:[{t:'2ºB',title:'Feira de Acessibilidade e Movimento',text:'Projetos assistivos em desenvolvimento, investigando movimento, forças, energia e soluções para problemas reais.',tags:['acessibilidade','movimento','protótipos']}]}},robotica:{name:'Robótica',years:{2026:[{t:'2ºB',title:'Feira de Acessibilidade e Movimento',text:'Ideias em construção, componentes em estudo e protótipos sendo materializados e testados pelos estudantes.',tags:['robótica','Arduino','autoria']}]}},digital:{name:'Educação Digital',years:{2025:[{t:'7ºs',title:'Projetos não anunciados',text:'Registros preservados enquanto os projetos permanecem protegidos por direitos autorais.',tags:['educação digital','autoria']}],2026:[{t:'1ºB',title:'Educação Digital',text:'Práticas e registros em construção contínua.',tags:['programação','pensamento computacional']},{t:'2ºB',title:'Educação Digital',text:'Práticas e registros em construção contínua.',tags:['tecnologia','projetos']}]}}};
-let subject='matematica',year='2026',classIndex=0;const years=document.querySelector('#years'),classes=document.querySelector('#classes'),record=document.querySelector('#record'),route=document.querySelector('#route');function render(){const item=data[subject];const ys=Object.keys(item.years).sort().reverse();if(!item.years[year])year=ys[0];const list=item.years[year];if(!list[classIndex])classIndex=0;years.innerHTML=ys.map(y=>`<button class="${y===year?'is-active':''}" data-year="${y}"><span>20</span><strong>${y.slice(2)}</strong><i>abrir ↗</i></button>`).join('');classes.innerHTML=list.map((c,i)=>`<button class="${i===classIndex?'is-active':''}" data-class="${i}"><span>0${i+1}</span><strong>${c.t}</strong><small>${c.title}</small></button>`).join('');const c=list[classIndex];route.textContent=`${item.name} / ${year} / ${c.t}`;record.innerHTML=`<span class="record-code">${subject.toUpperCase().slice(0,3)}.${year.slice(2)} / ${c.t}</span><h3>${c.title}</h3><p>${c.text}</p><div>${c.tags.map(t=>`<span>#${t}</span>`).join('')}</div><strong class="record-status">REGISTRO EM CONSTRUÇÃO CONTÍNUA</strong>`;years.querySelectorAll('button').forEach(b=>b.onclick=()=>{year=b.dataset.year;classIndex=0;render()});classes.querySelectorAll('button').forEach(b=>b.onclick=()=>{classIndex=Number(b.dataset.class);render()})}document.querySelectorAll('.subject-node').forEach(b=>b.onclick=()=>{document.querySelectorAll('.subject-node').forEach(x=>x.classList.remove('is-active'));b.classList.add('is-active');subject=b.dataset.subject;year=Object.keys(data[subject].years).sort().reverse()[0];classIndex=0;render()});render();
+const data={
+ matematica:{name:'Matemática',years:{2026:[{t:'1ºB',title:'Resolução de Problemas',text:'Água, gráficos e vídeos de sessenta segundos para transformar dados em argumento.',tags:['gráficos','sustentabilidade','comunicação']}]}},
+ fisica:{name:'Física e Tecnociência',years:{2026:[{t:'2ºB',title:'Feira de Acessibilidade e Movimento',text:'Projetos assistivos em desenvolvimento, investigando movimento, forças, energia e soluções para problemas reais.',tags:['acessibilidade','movimento','protótipos']}]}},
+ robotica:{name:'Robótica',years:{2026:[{t:'2ºB',title:'Feira de Acessibilidade e Movimento',text:'Ideias em construção, componentes em estudo e protótipos sendo materializados e testados pelos estudantes.',tags:['robótica','Arduino','autoria']}]}},
+ digital:{name:'Educação Digital',years:{2025:[{t:'7ºs',title:'Projetos não anunciados',text:'Registros preservados enquanto os projetos permanecem protegidos por direitos autorais.',tags:['educação digital','autoria']}],2026:[{t:'1ºB',title:'Educação Digital',text:'Práticas e registros em construção contínua.',tags:['programação','pensamento computacional']},{t:'2ºB',title:'Educação Digital',text:'Práticas e registros em construção contínua.',tags:['tecnologia','projetos']}]}}
+};
+let subject='matematica',year='2026',classIndex=0;
+const years=document.querySelector('#years'),classes=document.querySelector('#classes'),record=document.querySelector('#record'),route=document.querySelector('#route');
+function render(){const item=data[subject];const ys=Object.keys(item.years).sort().reverse();if(!item.years[year])year=ys[0];const list=item.years[year];if(!list[classIndex])classIndex=0;years.innerHTML=ys.map(y=>`<button class="${y===year?'is-active':''}" data-year="${y}"><span>20</span><strong>${y.slice(2)}</strong><i>abrir ↗</i></button>`).join('');classes.innerHTML=list.map((c,i)=>`<button class="${i===classIndex?'is-active':''}" data-class="${i}"><span>0${i+1}</span><strong>${c.t}</strong><small>${c.title}</small></button>`).join('');const c=list[classIndex];route.textContent=`${item.name} / ${year} / ${c.t}`;record.innerHTML=`<span class="record-code">${subject.toUpperCase().slice(0,3)}.${year.slice(2)} / ${c.t}</span><h3>${c.title}</h3><p>${c.text}</p><div>${c.tags.map(t=>`<span>#${t}</span>`).join('')}</div><strong class="record-status">REGISTRO EM CONSTRUÇÃO CONTÍNUA</strong>`;years.querySelectorAll('button').forEach(b=>b.onclick=()=>{year=b.dataset.year;classIndex=0;render()});classes.querySelectorAll('button').forEach(b=>b.onclick=()=>{classIndex=Number(b.dataset.class);render()})}
+document.querySelectorAll('.subject-node').forEach(b=>b.onclick=()=>{document.querySelectorAll('.subject-node').forEach(x=>x.classList.remove('is-active'));b.classList.add('is-active');subject=b.dataset.subject;year=Object.keys(data[subject].years).sort().reverse()[0];classIndex=0;render()});render();
 </script>
 <!-- Prévia pública OM3RATE -->
 </body>
