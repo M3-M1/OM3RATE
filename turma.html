@@ -34,7 +34,11 @@ const db={
   matematica:{name:'Matemática',classes:{'1b':{label:'1ºB',title:'Resolução de Problemas',text:'Água, gráficos e vídeos curtos para transformar dados em argumento.'}}},
   fisica:{name:'Física e Tecnociência',classes:{'2b-fisica':{label:'2ºB',title:'Feira de Acessibilidade e Movimento',text:'Projetos assistivos envolvendo movimento, forças, energia e soluções para problemas reais.'}}},
   robotica:{name:'Robótica',classes:{'2b-robotica':{label:'2ºB',title:'Feira de Acessibilidade e Movimento',text:'Protótipos, componentes, programação e autoria dos estudantes.'}}},
-  digital:{name:'Educação Digital',classes:{'7s-digital':{label:'7ºs',title:'Projetos não anunciados',text:'Registros preservados enquanto os projetos permanecem protegidos.'},'1b-digital':{label:'1ºB',title:'Educação Digital',text:'Programação e pensamento computacional.'},'2b-digital':{label:'2ºB',title:'Educação Digital',text:'Tecnologia e projetos em construção.'}}}
+  digital:{name:'Educação Digital',classes:{
+    '7s-digital-2025':{label:'7ºs anos',title:'Projetos não anunciados',text:'Registros preservados enquanto os projetos permanecem protegidos.'},
+    '6s-digital-2026':{label:'6ºs anos',title:'Educação Digital',text:'Cultura digital, criação, programação e uso responsável das tecnologias.'},
+    '7s-digital-2026':{label:'7ºs anos',title:'Educação Digital',text:'Programação, pensamento computacional e projetos digitais desenvolvidos com as turmas.'}
+  }}
 };
 const p=new URLSearchParams(location.search);
 const subject=p.get('materia')||'matematica';
