@@ -1,5 +1,6 @@
 name: Publicar OM3RATE no GitHub Pages
 
+# Prévia pública atualizada automaticamente a cada alteração na branch principal.
 on:
   push:
     branches:
