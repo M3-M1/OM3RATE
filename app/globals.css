@@ -85,3 +85,56 @@ h1, h2, h3, p { margin-top: 0; }h1 { font-family: var(--font-serif); font-size: 
   .contact-section { padding: 70px 19px; }.contact-inner { gap: 45px; grid-template-columns: 1fr; }.contact-card dl > div { grid-template-columns: 95px 1fr; }.site-footer { align-items: flex-start; flex-direction: column; gap: 15px; padding: 25px 19px; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+
+/* Camada de legibilidade: aumenta em cerca de três níveis os textos auxiliares. */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+.static-nav a { font-size: 11px !important; line-height: 1.35 !important; }
+.wordmark small { font-size: 10px; line-height: 1.35; }
+.is-compact .wordmark small { font-size: 8px; }
+.eyebrow,
+.section-index { font-size: 11px; line-height: 1.5; }
+.primary-button { font-size: 12px; line-height: 1.4; }
+.hero-actions > span { font-size: 10px; line-height: 1.7; }
+.formula { font-size: 11px; }
+.field-label { font-size: 10px; line-height: 1.4; }
+.forge-core i { font-size: 11px; }
+.motion-ribbon { font-size: 11px; line-height: 1.4; }
+
+.about-grid span { font-size: 11px; }
+.about-grid p { font-size: 14px; line-height: 1.75; }
+.acronym-grid article > span { font-size: 10px; }
+.acronym-grid h3 { font-size: 14px; }
+.acronym-grid p { font-size: 10px; line-height: 1.65; }
+
+.route-readout span,
+.panel-label span { font-size: 10px; }
+.route-readout strong { font-size: 12px; }
+.robot-caption p { font-size: 15px; line-height: 1.55; }
+.subject-node strong { font-size: 12px; line-height: 1.35; }
+.panel-label strong { font-size: 11px; }
+.year-buttons button i,
+.year-panel > p { font-size: 10px; line-height: 1.55; }
+
+.class-tabs button span { font-size: 10px; }
+.class-tabs button small { font-size: 10px; line-height: 1.5; }
+.record-code { font-size: 10px; }
+.class-record p { font-size: 13px; line-height: 1.75; }
+.class-record > div span { font-size: 9px; line-height: 1.3; padding: 6px 7px; }
+.record-status { font-size: 9px; }
+
+.project-timeline > header span { font-size: 10px; }
+.project-timeline > header small { font-size: 9px; }
+.timeline-track article span,
+.timeline-track article i { font-size: 9px; }
+.timeline-track article p { font-size: 11px; line-height: 1.55; }
+
+.contact-card dt { font-size: 10px; }
+.site-footer { font-size: 11px; line-height: 1.75; }
+
+@media (max-width: 760px) {
+  .static-nav a { font-size: 10px !important; }
+  .subject-node strong { font-size: 11px; }
+  .formula { font-size: 10px; }
+  .site-footer { font-size: 10px; }
+}
