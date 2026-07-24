@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Práticas | OM3RATE</title>
+  <link rel="icon" href="../public/favicon.svg">
+  <link rel="stylesheet" href="../css/estilo-geral.css">
+  <link rel="stylesheet" href="../css/paginas-internas.css">
+  <link rel="stylesheet" href="../css/pagina-praticas.css">
+</head>
+<body>
+<div class="om3-shell">
+  <header class="om3-header">
+    <a class="om3-brand" href="../index.html"><span class="om3-mark" aria-hidden="true"><svg class="om3-symbol" viewBox="0 0 100 100"><path class="symbol-o" d="M12 50C12 24 28 12 48 12C68 12 84 24 84 50C84 76 68 88 48 88C28 88 12 76 12 50Z"/><path class="symbol-m" d="M25 69V31L43 55L59 31V69"/><path class="symbol-three" d="M64 31H84L69 48H82L64 69"/><circle class="symbol-node" cx="88" cy="18" r="4"/></svg></span><span><span class="om3-word">OM<b>3</b>RATE</span><small>projeto e mapa de práticas</small></span></a>
+    <nav class="om3-nav"><a href="../index.html#quem-somos">O projeto</a><a href="../index.html#sigla">O percurso</a><a href="../index.html#arquivo">Práticas</a><a href="../index.html#contato">Contato</a></nav>
+  </header>
+  <main class="om3-main">
+    <div class="om3-breadcrumb"><a href="../index.html">OM3RATE</a><i>›</i><a href="../index.html#arquivo">Mapa de práticas</a><i>›</i><strong id="crumb-subject">Matéria</strong></div>
+    <header class="head"><span class="om3-section-tag">Registros organizados por matéria, ano e turma</span><h1 id="title">Práticas</h1><p>Escolha o ano e depois a turma para consultar os registros reunidos pelo projeto.</p></header>
+    <section class="steps"><aside class="panel"><div class="panel-label"><span>ETAPA 01</span><strong>ANO</strong></div><div class="years" id="years"></div></aside><section class="panel"><div class="panel-label"><span>ETAPA 02</span><strong>TURMAS</strong></div><div class="classes" id="classes"></div></section></section>
+    <p class="route-note">Os registros apresentam práticas construídas com os estudantes ao longo do ano, preservando o percurso de investigação, produção, teste e aprendizagem de cada turma.</p>
+    <a class="om3-return" href="../index.html#arquivo">← Voltar ao mapa de práticas</a>
+  </main>
+  <footer class="om3-footer"><span>Arquivo do projeto <strong>OM3RATE</strong></span><span class="copyright">© 2026 Profª Mérilyn Millena Moleta. Todos os direitos reservados.</span></footer>
+</div>
+<script>
+const database={
+  matematica:{name:'Matemática',years:{2026:[{code:'1b',label:'1ºB',title:'Resolução de Problemas',text:'Água, gráficos e vídeos curtos para transformar dados em argumento.'}]}},
+  fisica:{name:'Física e Tecnociência',years:{2026:[{code:'2b-fisica',label:'2ºB',title:'Feira de Acessibilidade e Movimento',text:'Projetos assistivos envolvendo movimento, forças, energia e soluções reais.'}]}},
+  robotica:{name:'Robótica',years:{2026:[{code:'2b-robotica',label:'2ºB',title:'Feira de Acessibilidade e Movimento',text:'Protótipos, componentes, programação e autoria dos estudantes.'}]}},
+  digital:{name:'Educação Digital',years:{
+    2025:[{code:'7s-digital-2025',label:'7ºs anos',title:'Projetos não anunciados',text:'Registros preservados enquanto os projetos permanecem protegidos.'}],
+    2026:[
+      {code:'6s-digital-2026',label:'6ºs anos',title:'Educação Digital',text:'Cultura digital, criação, programação e uso responsável das tecnologias.'},
+      {code:'7s-digital-2026',label:'7ºs anos',title:'Educação Digital',text:'Programação, pensamento computacional e projetos digitais desenvolvidos com as turmas.'}
+    ]
+  }}
+};
+const params=new URLSearchParams(location.search);
+const subject=params.get('materia')||'matematica';
+const item=database[subject]||database.matematica;
+document.querySelector('#title').textContent=item.name;
+document.querySelector('#crumb-subject').textContent=item.name;
+const years=Object.keys(item.years).sort().reverse();
+const year=params.get('ano')&&item.years[params.get('ano')]?params.get('ano'):years[0];
+document.querySelector('#years').innerHTML=years.map(y=>`<a class="year-card ${y===year?'active':''}" href="praticas.html?materia=${subject}&ano=${y}"><small>abrir ano</small><b>${y}</b></a>`).join('');
+const list=item.years[year]||[];
+document.querySelector('#classes').innerHTML=list.length?list.map(c=>`<a class="class-card" href="detalhes-turma.html?materia=${subject}&ano=${year}&turma=${c.code}"><small>${year}</small><strong>${c.label}</strong><p>${c.title}</p></a>`).join(''):'<p class="empty">Nenhuma turma cadastrada neste ano.</p>';
+</script>
+</body>
+</html>
