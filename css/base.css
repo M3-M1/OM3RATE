@@ -1,0 +1,7 @@
+/*
+ * Base visual do OM3RATE.
+ * Os arquivos originais permanecem como camada de compatibilidade enquanto
+ * todas as páginas passam a carregar seus estilos pela pasta /css.
+ */
+@import "../app/globals.css";
+@import "../app/hope.css";
