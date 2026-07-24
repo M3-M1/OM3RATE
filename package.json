@@ -4,7 +4,7 @@
   "private": true,
   "author": "Profª Mérilyn Millena Moleta",
   "license": "UNLICENSED",
-  "description": "Mapa autoral de práticas, métodos e projetos escolares.",
+  "description": "Projeto pedagógico de registro e visibilidade de práticas escolares.",
   "engines": {
     "node": ">=22.0.0"
   },
