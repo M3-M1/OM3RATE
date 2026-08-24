@@ -8,6 +8,11 @@
   <link rel="stylesheet" href="../css/estilo-geral.css">
   <link rel="stylesheet" href="../css/paginas-internas.css">
   <link rel="stylesheet" href="../css/pagina-turma.css">
+  <style>
+    .practice-detail{display:grid;gap:18px}.practice-detail p{margin:0}.practice-detail strong{color:var(--ink)}
+    .gallery.real-gallery{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}.gallery-card{border:1px solid var(--line);background:rgba(234,223,201,.45);padding:12px;margin:0}.gallery-card img{display:block;width:100%;height:auto;max-height:560px;object-fit:contain;background:#e8e0d1}.gallery-card figcaption{color:#4c5255;font-size:15px;line-height:1.55;padding:12px 4px 4px}.gallery-card.wide{grid-column:1/-1}.gallery-card.wide img{max-height:620px}.accessibility-note{background:rgba(91,109,82,.16);border-left:4px solid var(--sage);padding:18px;font-size:16px;line-height:1.65;margin-top:18px}
+    @media(max-width:760px){.gallery.real-gallery{grid-template-columns:1fr}.gallery-card.wide{grid-column:auto}}
+  </style>
 </head>
 <body>
 <div class="om3-shell">
@@ -19,23 +24,28 @@
     <div class="om3-breadcrumb"><a href="../index.html">OM3RATE</a><i>›</i><a href="../index.html#arquivo">Mapa de práticas</a><i>›</i><a id="crumb-projects" href="praticas.html">Matéria</a><i>›</i><strong id="crumb-class">Turma</strong></div>
     <section class="hero"><article class="intro"><span id="code">REGISTRO DE TURMA</span><h1 id="title">Turma</h1><p id="description">Página individual da prática.</p></article><dl class="meta"><div><dt>MATÉRIA</dt><dd id="subject">—</dd></div><div><dt>ANO</dt><dd id="year">—</dd></div><div><dt>TURMA</dt><dd id="class">—</dd></div></dl></section>
     <section class="content">
-      <article class="purpose"><strong>Um percurso construído com a turma</strong><p>Esta prática parte das propostas dos itinerários formativos e ganha forma com os estudantes durante o ano, conforme a turma investiga, propõe, constrói, testa e modifica suas ideias.</p></article>
-      <article class="block"><h2>Sobre a prática</h2><p id="about">Este espaço pode receber uma descrição mais extensa, objetivos, conteúdos trabalhados, etapas e resultados.</p></article>
-      <article class="block"><h2>Registros e materiais</h2><p>Área preparada para fotos, documentos, vídeos, protótipos e produções dos estudantes. Os registros preservam o processo e ajudam outras pessoas a conhecer o que foi desenvolvido.</p><div class="gallery"><div class="placeholder">Foto do processo</div><div class="placeholder">Material da turma</div><div class="placeholder">Resultado ou protótipo</div></div></article>
+      <article class="purpose"><strong id="purpose-title">Um percurso construído com a turma</strong><p id="purpose-text">Esta prática registra uma experiência desenvolvida com os estudantes.</p></article>
+      <article class="block"><h2>Sobre a prática</h2><div id="about" class="practice-detail"><p>Este espaço apresenta a descrição da atividade.</p></div></article>
+      <article class="block"><h2>Registros da atividade</h2><p id="gallery-intro">As imagens documentam momentos do processo realizado com a turma.</p><div class="gallery" id="gallery"><div class="placeholder">Foto do processo</div><div class="placeholder">Material da turma</div><div class="placeholder">Resultado ou protótipo</div></div><div id="accessibility"></div></article>
     </section>
     <a class="om3-return" id="back" href="praticas.html">← Voltar para as turmas</a>
   </main>
   <footer class="om3-footer"><span>Registro do projeto <strong>OM3RATE</strong></span><span class="copyright">© 2026 Profª Mérilyn Millena Moleta. Todos os direitos reservados.</span></footer>
 </div>
+<script src="../app/media/robotica-2025-1.js"></script>
+<script src="../app/media/robotica-2025-2.js"></script>
+<script src="../app/media/robotica-2025-3.js"></script>
+<script src="../app/media/robotica-2025-4.js"></script>
+<script src="../app/media/robotica-2025-5.js"></script>
 <script>
 const db={
   matematica:{name:'Matemática',classes:{'1b':{label:'1ºB',title:'Resolução de Problemas',text:'Água, gráficos e vídeos curtos para transformar dados em argumento.'}}},
   fisica:{name:'Física e Tecnociência',classes:{'2b-fisica':{label:'2ºB',title:'Feira de Acessibilidade e Movimento',text:'Projetos assistivos envolvendo movimento, forças, energia e soluções para problemas reais.'}}},
   robotica:{name:'Robótica',classes:{'2b-robotica':{label:'2ºB',title:'Feira de Acessibilidade e Movimento',text:'Protótipos, componentes, programação e autoria dos estudantes.'}}},
   digital:{name:'Educação Digital',classes:{
-    '7s-digital-2025':{label:'7ºs anos',title:'Projetos não anunciados',text:'Registros preservados enquanto os projetos permanecem protegidos.'},
-    '6s-digital-2026':{label:'6ºs anos',title:'Educação Digital',text:'Cultura digital, criação, programação e uso responsável das tecnologias.'},
-    '7s-digital-2026':{label:'7ºs anos',title:'Educação Digital',text:'Programação, pensamento computacional e projetos digitais desenvolvidos com as turmas.'}
+    '7s-digital-2025':{label:'7º anos',title:'Quem sou eu? Componentes da robótica',text:'Aprendizagem de componentes básicos de robótica por meio de um jogo de pistas, comparação com o corpo humano e participação coletiva.'},
+    '6s-digital-2026':{label:'6º anos',title:'Educação Digital',text:'Cultura digital, criação, programação e uso responsável das tecnologias.'},
+    '7s-digital-2026':{label:'7º anos',title:'Educação Digital',text:'Programação, pensamento computacional e projetos digitais desenvolvidos com as turmas.'}
   }}
 };
 const p=new URLSearchParams(location.search);
@@ -54,7 +64,29 @@ document.querySelector('#description').textContent=cls.text;
 document.querySelector('#subject').textContent=item.name;
 document.querySelector('#year').textContent=year;
 document.querySelector('#class').textContent=cls.label;
-document.querySelector('#about').textContent=`${cls.text} Esta página reúne registros, explicações, imagens e materiais específicos desta turma, preservando o percurso desenvolvido ao longo do ano.`;
+
+if(code==='7s-digital-2025' && year==='2025'){
+  document.querySelector('#purpose-title').textContent='Aprender robótica jogando: identificar, relacionar e explicar';
+  document.querySelector('#purpose-text').textContent='A dinâmica transformou o estudo de componentes básicos de robótica em uma atividade de investigação coletiva, na qual os estudantes precisavam interpretar características, relacionar funções e formular hipóteses antes de responder.';
+  document.querySelector('#about').innerHTML=`
+    <p>A atividade foi realizada com as turmas de <strong>7º ano em 2025</strong>, dentro de Educação Digital, para consolidar a compreensão sobre componentes básicos de robótica de forma prática e participativa.</p>
+    <p>Antes do jogo, os estudantes conheceram as funções de componentes como <strong>microcontrolador, sensores, atuadores, servomotor e LED</strong>. Para facilitar a compreensão, esses elementos foram comparados a partes e funções do corpo humano: o microcontrolador foi associado ao cérebro, os sensores aos sentidos e os atuadores aos movimentos executados pelo corpo.</p>
+    <p>Na dinâmica <strong>“Quem sou eu?”</strong>, um estudante segurava uma carta com a identidade de um componente e apresentava suas características sem revelar seu nome. Os colegas analisavam as pistas e tentavam descobrir qual componente estava sendo descrito. Assim, para chegar à resposta, precisavam compreender sua função e não apenas memorizar uma palavra.</p>
+    <p>A prática também favoreceu a comunicação oral, a elaboração de hipóteses, a associação entre entrada, processamento e saída em sistemas robóticos e a aprendizagem colaborativa entre os estudantes.</p>`;
+  document.querySelector('#gallery-intro').textContent='Os registros mostram a apresentação do jogo, as cartas elaboradas para os componentes e os grupos discutindo as pistas durante a atividade.';
+  const photos=[
+    [window.OM3_IMG_1,'Durante o jogo, um estudante lê as características da carta enquanto os colegas observam e tentam identificar o componente descrito.'],
+    [window.OM3_IMG_2,'Exemplo de carta utilizada na dinâmica: o microcontrolador é apresentado como o “cérebro” do robô, responsável por processar informações e decidir ações.'],
+    [window.OM3_IMG_3,'Registro do quadro com o título “Quem sou eu? – Componentes”, utilizado para introduzir e organizar a dinâmica em sala.'],
+    [window.OM3_IMG_4,'Visão geral da atividade realizada em espaço externo da escola, com os estudantes organizados em grupos para trocar pistas e respostas.'],
+    [window.OM3_IMG_5,'Grupo de estudantes analisando as cartas. Em primeiro plano, uma carta apresenta o sensor de distância como os “olhos” do robô, relacionando tecnologia e corpo humano.']
+  ];
+  document.querySelector('#gallery').className='gallery real-gallery';
+  document.querySelector('#gallery').innerHTML=photos.map((ph,i)=>`<figure class="gallery-card ${i===3?'wide':''}"><img src="${ph[0]}" alt="${ph[1]}"><figcaption>${ph[1]}</figcaption></figure>`).join('');
+  document.querySelector('#accessibility').innerHTML='<div class="accessibility-note"><strong>Acessibilidade dos registros:</strong> todas as fotografias possuem descrição textual associada. As legendas explicam o contexto pedagógico de cada imagem para que o conteúdo da prática não dependa somente da visualização das fotos.</div>';
+}else{
+  document.querySelector('#about').innerHTML=`<p>${cls.text} Esta página reúne registros, explicações, imagens e materiais específicos desta turma, preservando o percurso desenvolvido ao longo do ano.</p>`;
+}
 </script>
 </body>
 </html>
