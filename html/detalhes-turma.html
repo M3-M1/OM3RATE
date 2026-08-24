@@ -39,6 +39,17 @@
 <script src="../app/media/robotica-2025-3.js"></script>
 <script src="../app/media/robotica-2025-4.js"></script>
 <script src="../app/media/robotica-2025-5.js"></script>
+<script src="../app/media/robotica-2026-720-1a.js"></script>
+<script src="../app/media/robotica-2026-720-1b.js"></script>
+<script src="../app/media/robotica-2026-720-1c.js"></script>
+<script src="../app/media/robotica-2026-720-2a.js"></script>
+<script src="../app/media/robotica-2026-720-2b.js"></script>
+<script src="../app/media/robotica-2026-720-3a.js"></script>
+<script src="../app/media/robotica-2026-720-3b.js"></script>
+<script src="../app/media/robotica-2026-720-4a.js"></script>
+<script src="../app/media/robotica-2026-720-4b.js"></script>
+<script src="../app/media/robotica-2026-720-5a.js"></script>
+<script src="../app/media/robotica-2026-720-5b.js"></script>
 <script>
 const db={
   matematica:{name:'Matemática',classes:{'1b':{label:'1ºB',title:'Resolução de Problemas',text:'Água, gráficos e vídeos curtos para transformar dados em argumento.'}}},
@@ -116,14 +127,14 @@ if(code==='7s-digital-2025' && year==='2025'){
     <p class="mosaic-summary">A prática teve caráter introdutório e exploratório: antes de exigir que os estudantes projetassem sistemas mais complexos, permitiu que observassem um robô em uso, manuseassem controles, analisassem componentes e relacionassem cada elemento ao comportamento percebido durante a partida.</p>`;
   document.querySelector('#gallery-intro').textContent='As fotografias registram diferentes momentos da prática. O conjunto foi organizado como um scrapbook para preservar o caráter coletivo, experimental e divertido da atividade sem perder a função pedagógica de cada registro.';
   const photos=[
-    ['../public/robotica-2026/futebol-1.svg','Registro coletivo da turma com os robôs e o campo de futebol utilizado na prática. A imagem apresenta o projeto como experiência compartilhada e permite observar a escala dos pequenos robôs em relação ao campo.'],
-    ['../public/robotica-2026/futebol-2.svg','Estudantes controlam os robôs por dispositivos móveis durante uma partida. O registro evidencia a relação entre comando, comunicação com o robô e resposta dos motores no deslocamento pelo campo.'],
-    ['../public/robotica-2026/futebol-3.svg','Detalhe de um mecanismo robótico em montagem e observação. A fotografia ajuda a visualizar que um robô é formado pela integração de estrutura, motores, conexões e unidade de controle.'],
-    ['../public/robotica-2026/futebol-4.svg','Momento de partida com estudantes reunidos ao redor do campo. A situação permitiu observar trajetórias, velocidade, direção, limites do controle e a necessidade de ajustar estratégias durante o jogo.'],
-    ['../public/robotica-2026/futebol-5.svg','Close do controle pelo celular e de um robô identificado no campo. A tela de comando permite discutir como uma interface envia instruções que são processadas e transformadas em ações pelos componentes do robô.']
+    [`data:image/avif;base64,${window.R26_1}`,'Registro coletivo da turma com os robôs e o campo de futebol utilizado na prática. A imagem apresenta o projeto como experiência compartilhada e permite observar a escala dos pequenos robôs em relação ao campo.'],
+    [`data:image/avif;base64,${window.R26_2}`,'Estudantes controlam os robôs por dispositivos móveis durante uma partida. O registro evidencia a relação entre comando, comunicação com o robô e resposta dos motores no deslocamento pelo campo.'],
+    [`data:image/avif;base64,${window.R26_3}`,'Detalhe de um mecanismo robótico em montagem e observação. A fotografia ajuda a visualizar que um robô é formado pela integração de estrutura, motores, conexões e unidade de controle.'],
+    [`data:image/avif;base64,${window.R26_4}`,'Momento de partida com estudantes reunidos ao redor do campo. A situação permitiu observar trajetórias, velocidade, direção, limites do controle e a necessidade de ajustar estratégias durante o jogo.'],
+    [`data:image/avif;base64,${window.R26_5}`,'Close do controle pelo celular e de um robô identificado no campo. A tela de comando permite discutir como uma interface envia instruções que são processadas e transformadas em ações pelos componentes do robô.']
   ];
   document.querySelector('#gallery').className='gallery scrapbook-gallery';
-  document.querySelector('#gallery').innerHTML=photos.map((ph,i)=>`<figure class="scrap-card"><img src="${ph[0]}" alt="${ph[1]}"><figcaption><strong>Foto ${i+1}.</strong> ${ph[1]}</figcaption></figure>`).join('');
+  document.querySelector('#gallery').innerHTML=photos.map((ph,i)=>`<figure class="scrap-card"><img src="${ph[0]}" alt="${ph[1]}" loading="lazy" decoding="async"><figcaption><strong>Foto ${i+1}.</strong> ${ph[1]}</figcaption></figure>`).join('');
   document.querySelector('#accessibility').innerHTML=`<section class="accessibility-panel" aria-labelledby="access-title"><h3 id="access-title">Acessibilidade dos registros</h3><p>As cinco imagens possuem textos alternativos e legendas descritivas. A síntese abaixo permite acompanhar o conteúdo pedagógico mesmo sem visualizar as fotografias.</p><ol class="accessibility-list"><li><strong>Visão geral:</strong> turma reunida com o campo e os robôs utilizados na prática.</li><li><strong>Controle:</strong> estudantes utilizam celulares para comandar robôs no campo.</li><li><strong>Componentes:</strong> um mecanismo robótico é observado em detalhe, evidenciando estrutura, motores e conexões.</li><li><strong>Funcionamento:</strong> uma partida em andamento evidencia movimento, direção, estratégia e resposta aos comandos.</li><li><strong>Interface:</strong> dispositivo móvel e robô aparecem juntos, destacando a cadeia comando → processamento → movimento.</li></ol></section>`;
 }else{
   document.querySelector('#about').innerHTML=`<p>${cls.text} Esta página reúne registros, explicações, imagens e materiais específicos desta turma, preservando o percurso desenvolvido ao longo do ano.</p>`;
