@@ -30,10 +30,10 @@ const database={
   fisica:{name:'Física e Tecnociência',years:{2026:[{code:'2b-fisica',label:'2ºB',title:'Feira de Acessibilidade e Movimento',text:'Projetos assistivos envolvendo movimento, forças, energia e soluções reais.'}]}},
   robotica:{name:'Robótica',years:{2026:[{code:'2b-robotica',label:'2ºB',title:'Feira de Acessibilidade e Movimento',text:'Protótipos, componentes, programação e autoria dos estudantes.'}]}},
   digital:{name:'Educação Digital',years:{
-    2025:[{code:'7s-digital-2025',label:'7ºs anos',title:'Projetos não anunciados',text:'Registros preservados enquanto os projetos permanecem protegidos.'}],
+    2025:[{code:'7s-digital-2025',label:'7º anos',title:'Quem sou eu? Componentes da robótica',text:'Dinâmica investigativa sobre componentes básicos de robótica, com cartas, pistas e aprendizagem colaborativa.'}],
     2026:[
-      {code:'6s-digital-2026',label:'6ºs anos',title:'Educação Digital',text:'Cultura digital, criação, programação e uso responsável das tecnologias.'},
-      {code:'7s-digital-2026',label:'7ºs anos',title:'Educação Digital',text:'Programação, pensamento computacional e projetos digitais desenvolvidos com as turmas.'}
+      {code:'6s-digital-2026',label:'6º anos',title:'Educação Digital',text:'Cultura digital, criação, programação e uso responsável das tecnologias.'},
+      {code:'7s-digital-2026',label:'7º anos',title:'Educação Digital',text:'Programação, pensamento computacional e projetos digitais desenvolvidos com as turmas.'}
     ]
   }}
 };
@@ -43,7 +43,8 @@ const item=database[subject]||database.matematica;
 document.querySelector('#title').textContent=item.name;
 document.querySelector('#crumb-subject').textContent=item.name;
 const years=Object.keys(item.years).sort().reverse();
-const year=params.get('ano')&&item.years[params.get('ano')]?params.get('ano'):years[0];
+const preferredYear=subject==='digital'&&item.years['2025']?'2025':years[0];
+const year=params.get('ano')&&item.years[params.get('ano')]?params.get('ano'):preferredYear;
 document.querySelector('#years').innerHTML=years.map(y=>`<a class="year-card ${y===year?'active':''}" href="praticas.html?materia=${subject}&ano=${y}"><small>abrir ano</small><b>${y}</b></a>`).join('');
 const list=item.years[year]||[];
 document.querySelector('#classes').innerHTML=list.length?list.map(c=>`<a class="class-card" href="detalhes-turma.html?materia=${subject}&ano=${year}&turma=${c.code}"><small>${year}</small><strong>${c.label}</strong><p>${c.title}</p></a>`).join(''):'<p class="empty">Nenhuma turma cadastrada neste ano.</p>';
