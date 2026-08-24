@@ -11,6 +11,7 @@
   <style>
     .practice-detail{display:grid;gap:18px}.practice-detail p{margin:0}.practice-detail strong{color:var(--ink)}
     .gallery.real-gallery{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}.gallery-card{border:1px solid var(--line);background:rgba(234,223,201,.45);padding:12px;margin:0}.gallery-card img{display:block;width:100%;height:auto;max-height:560px;object-fit:contain;background:#e8e0d1}.gallery-card figcaption{color:#4c5255;font-size:15px;line-height:1.55;padding:12px 4px 4px}.gallery-card.wide{grid-column:1/-1}.gallery-card.wide img{max-height:620px}.accessibility-note{background:rgba(91,109,82,.16);border-left:4px solid var(--sage);padding:18px;font-size:16px;line-height:1.65;margin-top:18px}
+    .image-use-note{background:rgba(156,144,172,.13);border:1px solid rgba(156,144,172,.45);padding:22px;font-size:16px;line-height:1.7}.image-use-note strong{display:block;font:400 22px var(--font-serif);margin-bottom:8px}.meta-intents dd{font-size:16px;line-height:1.55;font-family:var(--font-mono)}
     @media(max-width:760px){.gallery.real-gallery{grid-template-columns:1fr}.gallery-card.wide{grid-column:auto}}
   </style>
 </head>
@@ -22,11 +23,12 @@
   </header>
   <main class="om3-main">
     <div class="om3-breadcrumb"><a href="../index.html">OM3RATE</a><i>›</i><a href="../index.html#arquivo">Mapa de práticas</a><i>›</i><a id="crumb-projects" href="praticas.html">Matéria</a><i>›</i><strong id="crumb-class">Turma</strong></div>
-    <section class="hero"><article class="intro"><span id="code">REGISTRO DE TURMA</span><h1 id="title">Turma</h1><p id="description">Página individual da prática.</p></article><dl class="meta"><div><dt>MATÉRIA</dt><dd id="subject">—</dd></div><div><dt>ANO</dt><dd id="year">—</dd></div><div><dt>TURMA</dt><dd id="class">—</dd></div></dl></section>
+    <section class="hero"><article class="intro"><span id="code">REGISTRO DE TURMA</span><h1 id="title">Turma</h1><p id="description">Página individual da prática.</p></article><dl class="meta"><div><dt>MATÉRIA</dt><dd id="subject">—</dd></div><div><dt>ANO</dt><dd id="year">—</dd></div><div><dt>TURMA</dt><dd id="class">—</dd></div><div id="meta-teacher" hidden><dt>PROFESSORA RESPONSÁVEL</dt><dd id="teacher">—</dd></div><div id="meta-intents" class="meta-intents" hidden><dt>INTUITOS DA AULA</dt><dd id="intents">—</dd></div></dl></section>
     <section class="content">
       <article class="purpose"><strong id="purpose-title">Um percurso construído com a turma</strong><p id="purpose-text">Esta prática registra uma experiência desenvolvida com os estudantes.</p></article>
       <article class="block"><h2>Sobre a prática</h2><div id="about" class="practice-detail"><p>Este espaço apresenta a descrição da atividade.</p></div></article>
       <article class="block"><h2>Registros da atividade</h2><p id="gallery-intro">As imagens documentam momentos do processo realizado com a turma.</p><div class="gallery" id="gallery"><div class="placeholder">Foto do processo</div><div class="placeholder">Material da turma</div><div class="placeholder">Resultado ou protótipo</div></div><div id="accessibility"></div></article>
+      <article id="image-use-note" class="image-use-note" hidden><strong>Observação sobre o uso das imagens</strong><span id="image-use-text"></span></article>
     </section>
     <a class="om3-return" id="back" href="praticas.html">← Voltar para as turmas</a>
   </main>
@@ -66,6 +68,10 @@ document.querySelector('#year').textContent=year;
 document.querySelector('#class').textContent=cls.label;
 
 if(code==='7s-digital-2025' && year==='2025'){
+  document.querySelector('#meta-teacher').hidden=false;
+  document.querySelector('#meta-intents').hidden=false;
+  document.querySelector('#teacher').textContent='Profª Mérilyn Millena Moleta';
+  document.querySelector('#intents').textContent='Compreender a função de componentes básicos de robótica; relacionar sensores, microcontroladores e atuadores a funções do corpo humano; identificar componentes por características e pistas; desenvolver vocabulário técnico, raciocínio, comunicação e aprendizagem colaborativa.';
   document.querySelector('#purpose-title').textContent='Aprender robótica jogando: identificar, relacionar e explicar';
   document.querySelector('#purpose-text').textContent='A dinâmica transformou o estudo de componentes básicos de robótica em uma atividade de investigação coletiva, na qual os estudantes precisavam interpretar características, relacionar funções e formular hipóteses antes de responder.';
   document.querySelector('#about').innerHTML=`
@@ -84,6 +90,8 @@ if(code==='7s-digital-2025' && year==='2025'){
   document.querySelector('#gallery').className='gallery real-gallery';
   document.querySelector('#gallery').innerHTML=photos.map((ph,i)=>`<figure class="gallery-card ${i===3?'wide':''}"><img src="${ph[0]}" alt="${ph[1]}"><figcaption>${ph[1]}</figcaption></figure>`).join('');
   document.querySelector('#accessibility').innerHTML='<div class="accessibility-note"><strong>Acessibilidade dos registros:</strong> todas as fotografias possuem descrição textual associada. As legendas explicam o contexto pedagógico de cada imagem para que o conteúdo da prática não dependa somente da visualização das fotos.</div>';
+  document.querySelector('#image-use-note').hidden=false;
+  document.querySelector('#image-use-text').textContent='As fotografias desta prática foram mantidas em qualidade visual reduzida como medida adicional de cautela no uso público das imagens. Como não há contato atual com os estudantes retratados, optou-se por preservar os registros com menor definição, mantendo apenas o necessário para documentar pedagogicamente a atividade e seu contexto.';
 }else{
   document.querySelector('#about').innerHTML=`<p>${cls.text} Esta página reúne registros, explicações, imagens e materiais específicos desta turma, preservando o percurso desenvolvido ao longo do ano.</p>`;
 }
