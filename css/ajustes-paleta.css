@@ -1,64 +1,149 @@
 :root{
-  --ui-lilac-gray:#8f8998;
-  --ui-lilac-gray-dark:#746f7d;
-  --ui-lilac-gray-soft:#ded9e3;
-  --ui-lilac-gray-pale:#f1edf4;
+  /* Paleta geral mais pigmentada, ainda sóbria */
+  --ui-lilac-gray:#81708f;
+  --ui-lilac-gray-dark:#5f526a;
+  --ui-lilac-gray-soft:#cfc4d5;
+  --ui-lilac-gray-pale:#eee8f1;
+  --ui-olive:#6d795d;
+  --ui-olive-dark:#515c45;
+  --ui-olive-soft:#bcc7b2;
+  --ui-graphite:#292a30;
 }
 
-/* Ajustes dos detalhes que antes apareciam dourados nas caixas e seleções. */
-.about-grid article{
-  background:rgba(245,242,247,.72);
+/* Mais presença no fundo geral sem ficar neon. */
+body,.site-shell,.om3-shell,.om3-main{
+  background-color:#e9e4ec!important;
 }
-.about-grid article:after{
-  border-right-color:var(--ui-lilac-gray);
-  border-top-color:var(--ui-lilac-gray);
+.site-shell,.om3-shell{
+  background-image:linear-gradient(135deg,#eee8f1 0%,#e3dce8 46%,#e1e7dc 100%)!important;
 }
-.about-grid article>span{
-  color:var(--ui-lilac-gray-dark);
+.topbar,.om3-header{
+  background:rgba(204,194,211,.97)!important;
+  border-color:rgba(73,62,82,.45)!important;
+  box-shadow:0 12px 30px rgba(53,45,61,.16)!important;
+}
+.topbar:after{
+  background:linear-gradient(90deg,#65735a,#8b7499,#59684f,#765f85)!important;
+  opacity:.95!important;
+}
+.home-mark,.hero-brand-mark,.om3-mark{
+  background:linear-gradient(145deg,#eee8f1,#cfc2d7)!important;
+  border-color:rgba(75,62,84,.48)!important;
+  box-shadow:8px 9px 0 rgba(100,80,113,.32)!important;
+}
+.hero-field{
+  background:linear-gradient(145deg,rgba(207,194,216,.82),rgba(197,207,189,.58))!important;
+  box-shadow:inset 0 0 70px rgba(87,67,99,.14)!important;
+}
+.project-callout{
+  background:rgba(126,99,145,.22)!important;
+  border-left-color:#765f85!important;
 }
 
-.school-spotlight:after{
-  border-right-color:var(--ui-lilac-gray);
-  border-top-color:var(--ui-lilac-gray);
+/* Cartões gerais com lilás e oliva mais perceptíveis. */
+.about-grid article,.project-manifesto,.panel,.meta,.block,.manifesto,.path-step,.photo-zone,.photo-placeholder{
+  background:linear-gradient(145deg,#eee9f1,#ded5e4)!important;
+  border-color:rgba(78,66,87,.42)!important;
+  box-shadow:7px 9px 20px rgba(47,39,54,.13)!important;
 }
-.school-spotlight>span{
-  color:#bdb5c7;
+.about-grid article:nth-child(2),.path-step:nth-child(even){
+  background:linear-gradient(145deg,#e8ede3,#d5dfce)!important;
+  border-color:rgba(81,92,69,.40)!important;
 }
+.about-grid article:after,.school-spotlight:after,.block:after{
+  border-right-color:#81708f!important;
+  border-top-color:#81708f!important;
+}
+.about-grid article>span,.panel-label span,.om3-section-tag,.om3-breadcrumb i{
+  color:#665472!important;
+}
+.school-spotlight{
+  background:linear-gradient(135deg,#25252c,#343039)!important;
+  box-shadow:0 20px 38px rgba(31,27,35,.28)!important;
+}
+.school-spotlight>span{color:#c9b9d2!important}
 
-.project-actions>span{
-  color:#b8b0c2;
+.process-strip span,.practice-date,.project-badge{
+  background:linear-gradient(135deg,#29282f,#39343e)!important;
+  box-shadow:5px 6px 0 rgba(92,107,78,.36)!important;
 }
+.process-strip span:nth-child(even){box-shadow:5px 6px 0 rgba(116,91,131,.40)!important}
 .learn-more{
-  background:var(--ui-lilac-gray-pale);
-  border-color:var(--ui-lilac-gray);
+  background:#d8ccde!important;
+  border-color:#765f85!important;
+  box-shadow:6px 7px 0 rgba(76,61,86,.22)!important;
 }
-.learn-more:hover,
-.learn-more:focus-visible{
-  background:var(--ui-lilac-gray);
-  border-color:var(--ui-lilac-gray);
-  color:#f7f4f8;
-}
-
-.subject-links{
-  background:linear-gradient(145deg,rgba(221,216,227,.72),rgba(205,199,213,.58));
-}
-.subject-card{
-  background:rgba(246,243,248,.9);
-}
-.subject-card:nth-child(2){
-  --accent:var(--ui-lilac-gray-dark);
+.learn-more:hover,.learn-more:focus-visible{
+  background:#765f85!important;
+  border-color:#765f85!important;
+  color:#f8f5fa!important;
 }
 
-/* Pequenos marcadores decorativos que ainda puxavam para o dourado. */
-.orb-dot.gold{
-  background:var(--ui-lilac-gray)!important;
+/* Percurso e seções escuras ganham reflexos pigmentados. */
+.acronym-section,.contact-section,.om3-footer,.intro{
+  background:linear-gradient(145deg,#1f2023 0%,#29262d 55%,#252b23 100%)!important;
 }
-.contact-card dt{
-  color:#a79faf!important;
+.acronym-grid article.is-m3{background:#44394a!important}
+.acronym-grid strong{color:#b9c5ad!important}
+.acronym-grid .is-m3 strong{color:#d0bddd!important}
+
+/* Práticas, turmas e registros. */
+.year-card,.class-card{
+  background:linear-gradient(145deg,#ddd1e3,#cbbdd3)!important;
+  border-color:rgba(80,65,90,.42)!important;
+  box-shadow:6px 8px 0 rgba(82,65,93,.18)!important;
 }
+.year-card:nth-child(even),.class-card:nth-child(even){
+  background:linear-gradient(145deg,#dce5d5,#c6d3bc)!important;
+  border-color:rgba(77,91,65,.40)!important;
+}
+.year-card:hover,.year-card.active,.class-card:hover{
+  background:#302d34!important;
+  box-shadow:9px 11px 0 rgba(111,87,126,.34)!important;
+}
+.route-note,.purpose{
+  background:rgba(105,124,88,.25)!important;
+  border-left-color:#59694c!important;
+}
+.mosaic-card{
+  background:linear-gradient(145deg,#ddd0e4,#c9bad2)!important;
+  box-shadow:8px 10px 0 rgba(104,80,118,.25)!important;
+}
+.mosaic-card:nth-child(even){
+  background:linear-gradient(145deg,#dce5d5,#c5d3bc)!important;
+  box-shadow:8px 10px 0 rgba(81,96,68,.25)!important;
+}
+.scrapbook-gallery{
+  background:radial-gradient(circle at 15% 20%,rgba(126,96,144,.34),transparent 30%),radial-gradient(circle at 80% 30%,rgba(96,116,79,.31),transparent 31%),#d8d0dc!important;
+}
+.scrap-card{
+  background:linear-gradient(145deg,#dfd2e5,#cbbbd4)!important;
+  box-shadow:11px 14px 26px rgba(39,31,45,.23)!important;
+}
+.scrap-card:nth-child(even){background:linear-gradient(145deg,#dce5d7,#c3d0ba)!important}
+.accessibility-panel{
+  background:rgba(103,123,86,.24)!important;
+  border-color:rgba(79,95,66,.70)!important;
+}
+
+/* Contato e elementos globais. */
+.contact-card{
+  background:linear-gradient(145deg,rgba(58,50,64,.97),rgba(40,44,38,.97))!important;
+  border-color:#71617b!important;
+  box-shadow:10px 12px 0 rgba(106,82,120,.28)!important;
+}
+.contact-card dt{color:#c5b3ce!important}
+.orb-dot.gold{background:#81708f!important;box-shadow:0 0 10px rgba(129,112,143,.58)!important}
+.orb-dot.sage{background:#69795a!important;box-shadow:0 0 10px rgba(105,121,90,.52)!important}
+.orb-dot.lilac{background:#9a7faa!important}
+.orb-dot.cream{background:#aebb9f!important}
+
+/*
+  IMPORTANTE: .subject-card fica fora destas sobrescritas.
+  As quatro matérias mantêm suas cores individuais e o brilho próprio.
+*/
 
 @media(max-width:800px){
-  .subject-links{
-    background:linear-gradient(180deg,rgba(221,216,227,.68),rgba(211,205,218,.5));
-  }
+  .topbar,.om3-header{background:rgba(207,197,214,.98)!important}
+  .about-grid article,.panel,.meta,.block{box-shadow:5px 7px 15px rgba(47,39,54,.12)!important}
 }
