@@ -1,0 +1,18 @@
+/* Botões de matérias com cores mais vibrantes e brilho de ícone. */
+.subject-card{position:relative;isolation:isolate;overflow:visible!important;transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease,background .28s ease!important}
+
+.subject-card:nth-child(1){--subject:#3f8fc7;--subject-soft:#a7d4ef;--subject-bg:#dceef9;background:linear-gradient(135deg,#eef8fd 0%,#dceef9 55%,#c9e3f2 100%)!important}
+.subject-card:nth-child(2){--subject:#8d52c7;--subject-soft:#d0acee;--subject-bg:#eadcf6;background:linear-gradient(135deg,#f7effc 0%,#eadcf6 55%,#ddc8ee 100%)!important}
+.subject-card:nth-child(3){--subject:#6f8f3f;--subject-soft:#bed69d;--subject-bg:#e1ecd2;background:linear-gradient(135deg,#f2f8ea 0%,#e1ecd2 55%,#cfdfbb 100%)!important}
+.subject-card:nth-child(4){--subject:#c95f8b;--subject-soft:#efb2cd;--subject-bg:#f3dce6;background:linear-gradient(135deg,#fff1f6 0%,#f3dce6 55%,#eac8d8 100%)!important}
+
+.subject-card{border-color:color-mix(in srgb,var(--subject) 60%,#55525b)!important;box-shadow:6px 8px 0 color-mix(in srgb,var(--subject) 24%,transparent),0 10px 22px rgba(34,32,39,.10)!important}
+.subject-card b,.subject-card i{color:var(--subject)!important;text-shadow:0 0 8px color-mix(in srgb,var(--subject) 55%,transparent),0 0 18px color-mix(in srgb,var(--subject) 26%,transparent)!important;transition:.28s ease!important}
+.subject-card strong{color:#23242a!important;transition:.28s ease!important}
+.subject-card:after{content:""!important;position:absolute!important;left:0!important;bottom:0!important;width:100%!important;height:6px!important;background:linear-gradient(90deg,var(--subject),transparent)!important;box-shadow:0 0 12px color-mix(in srgb,var(--subject) 55%,transparent)!important;transform:scaleX(.28)!important;transform-origin:left!important;transition:.3s ease!important}
+.subject-card:hover,.subject-card:focus-visible{background:linear-gradient(135deg,color-mix(in srgb,var(--subject) 78%,#202126),#202126)!important;border-color:var(--subject-soft)!important;box-shadow:10px 12px 0 color-mix(in srgb,var(--subject) 42%,transparent),0 0 30px color-mix(in srgb,var(--subject) 46%,transparent)!important;color:#fff!important;transform:translateX(10px) translateY(-3px)!important}
+.subject-card:hover b,.subject-card:hover i,.subject-card:focus-visible b,.subject-card:focus-visible i{color:#fff!important;text-shadow:0 0 9px var(--subject-soft),0 0 20px var(--subject),0 0 34px color-mix(in srgb,var(--subject) 78%,transparent)!important}
+.subject-card:hover strong,.subject-card:focus-visible strong{color:#fff!important;text-shadow:0 2px 8px rgba(0,0,0,.25)!important}
+.subject-card:hover:after,.subject-card:focus-visible:after{transform:scaleX(1)!important;box-shadow:0 0 12px var(--subject),0 0 28px color-mix(in srgb,var(--subject) 70%,transparent)!important}
+
+@media(max-width:800px){.subject-card:hover,.subject-card:focus-visible{transform:translateY(-3px)!important}}
