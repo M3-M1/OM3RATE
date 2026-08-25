@@ -2,6 +2,7 @@
 @import "../app/globals.css";
 @import "../app/hope.css";
 @import "./ajustes-paleta.css";
+@import "./performance.css";
 
 /* Base histórica; ajustes globais finais são aplicados por ajustes-paleta.css. */
 :root{--ink:#172631;--ink-2:#1A334A;--paper:#e3e8ec;--paper-2:#b7c5cd;--bone:#edf2f5;--steel:#5f7684;--steel-light:#9eafb9;--sage:#18A3B7;--lilac:#6F71A1;--brass:#5AA5CD;--olive:#1E536E;--olive-dark:#1A334A;--olive-light:#5AA5CD;--lilac-dark:#55577f;--lilac-light:#9fa1c4;--lilac-pale:#e2e2ed;--cool-gray:#8fa1ac;--line:rgba(26,51,74,.34);--shadow:rgba(14,31,44,.20);--shadow-deep:rgba(8,20,29,.30)}
