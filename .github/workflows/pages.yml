@@ -1,6 +1,5 @@
 name: Publicar OM3RATE no GitHub Pages
 
-# Prévia pública atualizada automaticamente a cada alteração na branch principal.
 on:
   push:
     branches:
@@ -22,6 +21,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+
     steps:
       - name: Baixar o código
         uses: actions/checkout@v4
@@ -31,13 +31,34 @@ jobs:
         with:
           enablement: true
 
-      - name: Separar somente os arquivos públicos
+      - name: Montar o site estático completo
         run: |
-          mkdir -p _site/app _site/public
+          rm -rf _site
+          mkdir -p _site/app
+
+          # Página inicial e atalhos legados
           cp index.html _site/index.html
+          [ -f detalhes-turma.html ] && cp detalhes-turma.html _site/detalhes-turma.html || true
+          [ -f percurso.html ] && cp percurso.html _site/percurso.html || true
+
+          # Domínio personalizado
+          cp CNAME _site/CNAME
+
+          # Estrutura visual e páginas internas
+          cp -R css _site/css
+          cp -R html _site/html
+          cp -R public _site/public
+
+          # CSS compartilhado e mídias usadas pelas páginas estáticas
           cp app/globals.css _site/app/globals.css
-          cp public/favicon.svg _site/public/favicon.svg
-          cp public/robot-astrolabe.webp _site/public/robot-astrolabe.webp
+          cp app/hope.css _site/app/hope.css
+          cp app/subpages.css _site/app/subpages.css
+          if [ -d app/media ]; then
+            cp -R app/media _site/app/media
+          fi
+
+          # Evita processamento Jekyll e mantém os caminhos exatamente como foram criados
+          touch _site/.nojekyll
 
       - name: Preparar o site HTML
         uses: actions/upload-pages-artifact@v3
