@@ -1,0 +1,64 @@
+:root{
+  --ui-lilac-gray:#8f8998;
+  --ui-lilac-gray-dark:#746f7d;
+  --ui-lilac-gray-soft:#ded9e3;
+  --ui-lilac-gray-pale:#f1edf4;
+}
+
+/* Ajustes dos detalhes que antes apareciam dourados nas caixas e seleções. */
+.about-grid article{
+  background:rgba(245,242,247,.72);
+}
+.about-grid article:after{
+  border-right-color:var(--ui-lilac-gray);
+  border-top-color:var(--ui-lilac-gray);
+}
+.about-grid article>span{
+  color:var(--ui-lilac-gray-dark);
+}
+
+.school-spotlight:after{
+  border-right-color:var(--ui-lilac-gray);
+  border-top-color:var(--ui-lilac-gray);
+}
+.school-spotlight>span{
+  color:#bdb5c7;
+}
+
+.project-actions>span{
+  color:#b8b0c2;
+}
+.learn-more{
+  background:var(--ui-lilac-gray-pale);
+  border-color:var(--ui-lilac-gray);
+}
+.learn-more:hover,
+.learn-more:focus-visible{
+  background:var(--ui-lilac-gray);
+  border-color:var(--ui-lilac-gray);
+  color:#f7f4f8;
+}
+
+.subject-links{
+  background:linear-gradient(145deg,rgba(221,216,227,.72),rgba(205,199,213,.58));
+}
+.subject-card{
+  background:rgba(246,243,248,.9);
+}
+.subject-card:nth-child(2){
+  --accent:var(--ui-lilac-gray-dark);
+}
+
+/* Pequenos marcadores decorativos que ainda puxavam para o dourado. */
+.orb-dot.gold{
+  background:var(--ui-lilac-gray)!important;
+}
+.contact-card dt{
+  color:#a79faf!important;
+}
+
+@media(max-width:800px){
+  .subject-links{
+    background:linear-gradient(180deg,rgba(221,216,227,.68),rgba(211,205,218,.5));
+  }
+}
