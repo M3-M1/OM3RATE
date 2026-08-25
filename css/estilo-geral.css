@@ -2,83 +2,154 @@
 @import "../app/globals.css";
 @import "../app/hope.css";
 
-/* Paleta unificada OM3RATE: lilás acinzentado + verde oliva acinzentado. */
+/*
+  PALETA GLOBAL OM3RATE
+  Lilás acinzentado + verde oliva acinzentado + neutros frios.
+  Esta camada sobrescreve também cores fixas antigas em páginas internas.
+*/
 :root{
-  --ink:#1d1e22;
-  --ink-2:#2a2b31;
+  --ink:#202126;
+  --ink-2:#2b2c31;
   --paper:#efedf2;
-  --paper-2:#dddbe1;
+  --paper-2:#dedbe2;
   --bone:#f6f4f7;
-  --steel:#7d818a;
-  --steel-light:#b9bcc2;
-  --sage:#87907f;
-  --lilac:#958da3;
-  --brass:#8f8996;
-  --olive:#7f8976;
-  --olive-light:#aab1a4;
-  --lilac-light:#d8d2dc;
-  --lilac-pale:#f0edf3;
-  --line:rgba(49,50,57,.24);
+  --steel:#80838b;
+  --steel-light:#babdc3;
+  --sage:#858f7e;
+  --lilac:#958ca4;
+  --brass:#918b98;
+  --olive:#7f8977;
+  --olive-dark:#687260;
+  --olive-light:#abb2a5;
+  --lilac-dark:#746d7d;
+  --lilac-light:#d6d0db;
+  --lilac-pale:#f1eef3;
+  --cool-gray:#c8c8ce;
+  --line:rgba(62,62,70,.24);
 }
 
 html,body{background:#efedf2!important;color:var(--ink)!important}
-.site-shell,.om3-shell{background:linear-gradient(135deg,#f3f0f5 0%,#eceaf0 46%,#eef0ec 100%)!important}
+body,.site-shell,.om3-shell,.om3-main{background-color:#efedf2!important}
+.site-shell,.om3-shell{background-image:linear-gradient(135deg,#f4f1f5 0%,#ece9ef 48%,#edf0eb 100%)!important}
 
-/* Cabeçalhos e navegação */
-.topbar,.om3-header{background:rgba(223,219,227,.91)!important;border-color:rgba(91,88,101,.25)!important}
-.home-mark,.hero-brand-mark,.om3-mark{background:linear-gradient(145deg,#f2eff4,#dcd7e0)!important}
-.static-nav a,.om3-nav a,.om3-return{background:linear-gradient(145deg,#f4f1f5,#e0dce3)!important;border-color:rgba(91,88,101,.28)!important}
-.static-nav a:nth-child(1){--nav-accent:#7e838b!important}.static-nav a:nth-child(2){--nav-accent:#958da3!important}.static-nav a:nth-child(3){--nav-accent:#87907f!important}.static-nav a:nth-child(4){--nav-accent:#817b88!important}
+/* ===== CABEÇALHOS / NAVEGAÇÃO ===== */
+.topbar,.om3-header{background:rgba(222,218,226,.94)!important;border-color:rgba(92,90,101,.26)!important}
+.home-mark,.hero-brand-mark,.om3-mark{background:linear-gradient(145deg,#f3f0f5,#d9d4df)!important;border-color:rgba(94,90,104,.3)!important}
+.static-nav a,.om3-nav a,.om3-return{background:linear-gradient(145deg,#f4f1f5,#dfdbe3)!important;border-color:rgba(91,88,100,.28)!important;color:#27282d!important}
+.static-nav a:nth-child(1){--nav-accent:#81858d!important}
+.static-nav a:nth-child(2){--nav-accent:#958ca4!important}
+.static-nav a:nth-child(3){--nav-accent:#858f7e!important}
+.static-nav a:nth-child(4){--nav-accent:#77727f!important}
+.topbar:after{background:linear-gradient(90deg,#858f7e,#958ca4,#77727f,#aeb4a8)!important}
 
-/* Caixas, cartões e painéis claros */
-.about-grid article,.project-manifesto,.panel,.meta,.block,.manifesto,.path-step,.photo-zone,.photo-placeholder,.contact-card{background:rgba(244,242,246,.62)!important;border-color:rgba(90,89,99,.24)!important}
-.year-card,.class-card,.placeholder,.mosaic-card,.scrap-card{background:#e4e2e6!important;border-color:rgba(88,88,97,.25)!important}
-.year-card:nth-child(even),.class-card:nth-child(even),.mosaic-card:nth-child(even){background:#dfe3dd!important}
-.scrapbook-gallery{background:radial-gradient(circle at 15% 20%,rgba(149,141,163,.15),transparent 30%),radial-gradient(circle at 82% 28%,rgba(127,137,118,.14),transparent 30%),#e9e7eb!important}
-.scrap-card img{background:#e2e0e4!important}
+/* ===== FUNDO CLARO / HERO ===== */
+.hero-field{background:rgba(232,229,236,.62)!important}
+.project-callout{background:rgba(149,140,164,.12)!important;border-left-color:#958ca4!important}
+.street-future i{color:#858f7e!important}
 
-/* Destaques lilás/oliva */
-.project-callout,.route-note,.purpose{background:rgba(127,137,118,.16)!important;border-color:var(--olive)!important}
-.project-manifesto:before,.mosaic-card:before{background:var(--lilac)!important}
-.about-grid article:after,.school-spotlight:after{border-color:var(--lilac)!important}
-.school-spotlight{background:#25262b!important}
-.school-spotlight>span,.om3-section-tag,.om3-breadcrumb i,.panel-label span,.intro span,.meta dt,.about-grid span,.project-actions>span,.acronym-heading span,.route-readout span,.panel-label span{color:#a8a0b2!important}
-.learn-more{background:#e2dfe6!important;border-color:#958da3!important;color:#25262b!important}
-.learn-more:hover{background:#958da3!important;color:#f6f4f7!important}
+/* ===== CARTÕES DO PROJETO ===== */
+.about-grid article,.project-manifesto,.panel,.meta,.block,.manifesto,.path-step,.photo-zone,.photo-placeholder,.contact-card{
+  background:rgba(242,240,244,.76)!important;
+  border-color:rgba(87,86,96,.24)!important;
+}
+.about-grid article:nth-child(2),.path-step:nth-child(even){background:rgba(226,230,223,.72)!important}
+.about-grid article:after,.school-spotlight:after,.block:after{border-color:#958ca4!important}
+.project-manifesto:before,.mosaic-card:before{background:#958ca4!important}
+.school-spotlight{background:#292a2f!important}
+.school-spotlight>span{color:#b9b1c0!important}
 
-/* Categorias do mapa de práticas */
-.subject-map,.knowledge-machine{background:linear-gradient(135deg,#e7e4e9,#dfe3dd)!important;border-color:rgba(80,82,86,.26)!important}
-.subject-links{background:rgba(214,218,210,.55)!important}
-.subject-card{background:#ece9ef!important;border-color:rgba(90,87,99,.26)!important}
-.subject-card:nth-child(1){--accent:#7f838c!important}.subject-card:nth-child(2){--accent:#958da3!important}.subject-card:nth-child(3){--accent:#87907f!important}.subject-card:nth-child(4){--accent:#817b88!important}
+/* ===== FAIXAS / BOTÕES DE PROCESSO ===== */
+.process-strip span,.practice-date,.project-badge{background:#292a2f!important;color:#f2f0f4!important}
+.learn-more{background:#ded9e2!important;border-color:#958ca4!important;color:#28292e!important}
+.learn-more:hover{background:#958ca4!important;color:#f7f5f8!important}
+
+/* ===== PERCURSO ===== */
+.acronym-section,.contact-section,.om3-footer,.intro{background:#202126!important}
+.acronym-grid article{background:#202126!important;border-color:#4a4b51!important}
+.acronym-grid article.is-m3{background:#34343d!important}
+.acronym-grid strong{color:#b6bbb2!important}
+.acronym-grid .is-m3 strong{color:#b7aec2!important}
+.acronym-heading span,.project-actions>span,.section-index.light{color:#aaa3b2!important}
+
+/* ===== MAPA DE PRÁTICAS ===== */
+.subject-map,.knowledge-machine{
+  background:linear-gradient(135deg,#e5e1e8 0%,#dfe3dc 100%)!important;
+  border-color:rgba(79,81,87,.26)!important;
+}
+.subject-visual,.subject-stage{background:linear-gradient(150deg,#ece8ef,#e1e5df)!important}
+.subject-links{background:rgba(213,218,210,.7)!important}
+.subject-card{background:#efecf1!important;border-color:rgba(88,86,96,.26)!important;color:#25262b!important}
+.subject-card:nth-child(1){--accent:#7e838b!important}
+.subject-card:nth-child(2){--accent:#958ca4!important}
+.subject-card:nth-child(3){--accent:#858f7e!important}
+.subject-card:nth-child(4){--accent:#77727f!important}
 .subject-card:hover{background:#2b2c31!important;color:#f5f3f6!important}
 
-/* Percurso e áreas escuras */
-.acronym-section,.contact-section,.om3-footer,.intro,.practice-date{background:#202126!important}
-.acronym-grid article.is-m3{background:#34343c!important}
-.acronym-grid .is-m3 strong{color:#b7aec1!important}
-.acronym-grid strong{color:#b8bcb6!important}
-.acronym-grid article,.acronym-grid{border-color:#494a50!important}
+/* ===== PÁGINA DE PRÁTICAS: ANOS E TURMAS ===== */
+.year-card,.class-card{
+  background:#dfdce3!important;
+  border-color:rgba(86,85,95,.25)!important;
+  color:#24252a!important;
+}
+.year-card:nth-child(even),.class-card:nth-child(even){background:#dce2d9!important}
+.year-card:hover,.year-card.active,.class-card:hover{background:#2b2c31!important;color:#f5f3f6!important}
+.year-card small,.class-card small,.panel-label span,.om3-section-tag,.om3-breadcrumb i{color:#7a7483!important}
+.route-note{background:rgba(127,137,119,.16)!important;border-left-color:#7f8977!important}
 
-/* Elementos decorativos antes dourados */
-.symbol-node,.ring-a:before,.ring-b:before,.ambient-orbit:after{fill:var(--lilac)!important;background:var(--lilac)!important}
+/* ===== PÁGINA DE TURMA / REGISTROS ===== */
+.meta,.block{background:#efedf2!important}
+.purpose{background:rgba(127,137,119,.17)!important;border-left-color:#7f8977!important}
+.placeholder{background:#dfdde3!important;border-color:#85898f!important;color:#565960!important}
+.placeholder:hover{background:#d7d2dd!important}
+.mosaic-card{background:#e2dfe5!important;border-color:rgba(88,87,96,.24)!important;box-shadow:5px 6px 0 rgba(149,140,164,.14)!important}
+.mosaic-card:nth-child(even){background:#dfe4dc!important}
+.mosaic-card strong{color:#626973!important}
+.mosaic-summary{border-left-color:#958ca4!important}
+
+/* scrapbook: remove os últimos amarelos/bege */
+.scrapbook-gallery{
+  background:radial-gradient(circle at 15% 20%,rgba(149,140,164,.16),transparent 29%),radial-gradient(circle at 80% 30%,rgba(127,137,119,.15),transparent 30%),#e9e7ec!important;
+}
+.scrap-card{background:#e5e1e8!important;border-color:rgba(71,71,80,.2)!important;box-shadow:8px 10px 20px rgba(36,37,42,.13)!important}
+.scrap-card:nth-child(even){background:#e0e5de!important}
+.scrap-card:before{background:rgba(149,140,164,.44)!important}
+.scrap-card:nth-child(2):before,.scrap-card:nth-child(5):before{background:rgba(116,109,125,.4)!important}
+.scrap-card:nth-child(3):before{background:rgba(127,137,119,.42)!important}
+.scrap-card img{background:#dcdae0!important}
+.scrap-card figcaption{color:#50535a!important}
+
+/* ===== ACESSIBILIDADE ===== */
+.accessibility-panel{background:rgba(133,143,126,.14)!important;border-color:rgba(133,143,126,.48)!important}
+.accessibility-list li{color:#4c5054!important}
+
+/* ===== DETALHES DECORATIVOS ===== */
+.symbol-node,.ring-a:before,.ring-b:before,.ambient-orbit:after{fill:#958ca4!important;background:#958ca4!important}
 .primary-button span,.forge-core i,.wordmark small:before{color:#aaa2b3!important}
-.forge-core:after{border-color:#958da3!important}
-.street-future i{color:#87907f!important}
-.robot-halo{border-color:rgba(149,141,163,.42)!important}
-.orb-dot.gold{background:#958da3!important}.orb-dot.sage{background:#87907f!important}.orb-dot.lilac{background:#aaa0b7!important}.orb-dot.cream{background:#c8ccc4!important}
+.forge-core:after{border-color:#958ca4!important}
+.robot-halo{border-color:rgba(149,140,164,.44)!important}
+.orb-dot.gold{background:#958ca4!important}
+.orb-dot.sage{background:#858f7e!important}
+.orb-dot.lilac{background:#aaa0b7!important}
+.orb-dot.cream{background:#c6cbc1!important}
 
-/* Formulários/seleções e foco */
-button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline-color:#958da3!important}
-input,select,textarea{background:#f2eff4!important;border-color:#9e98a6!important;color:#25262b!important}
+/* ===== CONTATO ===== */
+.contact-card{background:rgba(47,48,54,.58)!important;border-color:#505159!important;color:#f0eef3!important}
+.contact-card dt{color:#aaa3b2!important}
+.contact-card dd,.contact-card a{color:#efedf2!important}
 
-/* Acessibilidade e coerência cromática */
-.accessibility-panel{background:rgba(135,144,127,.13)!important;border-color:rgba(135,144,127,.48)!important}
-.block:after{border-color:#958da3!important}
-.placeholder:hover{background:rgba(149,141,163,.14)!important}
+/* ===== FORMULÁRIOS / SELEÇÕES ===== */
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline-color:#958ca4!important}
+input,select,textarea{background:#f0edf2!important;border-color:#9b95a3!important;color:#25262b!important}
 
-/* Mantém contraste no celular sem introduzir novas cores. */
+/* ===== FIM DO BEGE/AMARELO: sobrescritas específicas ===== */
+.om3-header{background:rgba(222,218,226,.94)!important}
+.om3-mark{background:linear-gradient(145deg,#f2eff4,#d9d4df)!important}
+.om3-nav a,.om3-return{background:#e4e0e7!important}
+.meta,.block,.panel,.manifesto,.photo-zone{background:#efedf2!important}
+
+/* ===== RESPONSIVO ===== */
 @media(max-width:800px){
-  .topbar,.om3-header{background:rgba(226,222,230,.96)!important}
-  .subject-links{background:rgba(224,227,220,.76)!important}
+  .topbar,.om3-header{background:rgba(226,222,230,.97)!important}
+  .subject-links{background:rgba(220,225,217,.82)!important}
+  .subject-map,.knowledge-machine{background:linear-gradient(180deg,#e6e2e9,#dfe4dc)!important}
 }
