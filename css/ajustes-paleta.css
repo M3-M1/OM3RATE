@@ -1,149 +1,111 @@
 :root{
-  /* Paleta geral mais pigmentada, ainda sóbria */
-  --ui-lilac-gray:#81708f;
-  --ui-lilac-gray-dark:#5f526a;
-  --ui-lilac-gray-soft:#cfc4d5;
-  --ui-lilac-gray-pale:#eee8f1;
-  --ui-olive:#6d795d;
-  --ui-olive-dark:#515c45;
-  --ui-olive-soft:#bcc7b2;
-  --ui-graphite:#292a30;
+  --future-violet:#7456a4;
+  --future-blue:#527b9d;
+  --future-teal:#4f827d;
+  --future-green:#667d58;
+  --future-rose:#a0647e;
+  --future-amber:#aa8155;
+  --future-graphite:#24252b;
+  --future-soft:#ece8f0;
 }
 
-/* Mais presença no fundo geral sem ficar neon. */
-body,.site-shell,.om3-shell,.om3-main{
-  background-color:#e9e4ec!important;
-}
+/* Base clara prismática: colorida, fria e elegante. */
+body,.site-shell,.om3-shell,.om3-main{background-color:#e9e7ed!important}
 .site-shell,.om3-shell{
-  background-image:linear-gradient(135deg,#eee8f1 0%,#e3dce8 46%,#e1e7dc 100%)!important;
+  background-image:
+    radial-gradient(circle at 8% 12%,rgba(116,86,164,.13),transparent 27%),
+    radial-gradient(circle at 91% 18%,rgba(79,130,125,.12),transparent 26%),
+    radial-gradient(circle at 74% 78%,rgba(160,100,126,.09),transparent 25%),
+    linear-gradient(135deg,#f0edf3 0%,#e6e8ee 48%,#e7ece7 100%)!important;
 }
+.moving-grid{background-image:linear-gradient(rgba(82,123,157,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(116,86,164,.065) 1px,transparent 1px)!important}
+
+/* Cabeçalho com vidro e linha espectral. */
 .topbar,.om3-header{
-  background:rgba(204,194,211,.97)!important;
-  border-color:rgba(73,62,82,.45)!important;
-  box-shadow:0 12px 30px rgba(53,45,61,.16)!important;
+  background:rgba(222,218,229,.88)!important;
+  backdrop-filter:blur(16px) saturate(125%)!important;
+  border-color:rgba(70,68,82,.38)!important;
+  box-shadow:0 12px 34px rgba(35,35,44,.14),inset 0 1px rgba(255,255,255,.7)!important;
 }
 .topbar:after{
-  background:linear-gradient(90deg,#65735a,#8b7499,#59684f,#765f85)!important;
-  opacity:.95!important;
+  background:linear-gradient(90deg,var(--future-blue),var(--future-violet),var(--future-rose),var(--future-amber),var(--future-green),var(--future-teal))!important;
+  height:3px!important;opacity:.88!important;
+  box-shadow:0 0 12px rgba(116,86,164,.28)!important;
 }
 .home-mark,.hero-brand-mark,.om3-mark{
-  background:linear-gradient(145deg,#eee8f1,#cfc2d7)!important;
-  border-color:rgba(75,62,84,.48)!important;
-  box-shadow:8px 9px 0 rgba(100,80,113,.32)!important;
+  background:linear-gradient(145deg,rgba(247,244,249,.96),rgba(209,201,220,.92))!important;
+  border-color:rgba(91,72,108,.46)!important;
+  box-shadow:8px 9px 0 rgba(82,123,157,.20),0 0 24px rgba(116,86,164,.13)!important;
 }
+.om3-symbol .symbol-o{stroke:var(--future-blue)!important}.om3-symbol .symbol-three{stroke:var(--future-violet)!important}.om3-symbol .symbol-node{fill:var(--future-rose)!important}
+
+/* Navegação com acentos variados. */
+.static-nav a:nth-child(1){--nav-accent:var(--future-blue)!important}.static-nav a:nth-child(2){--nav-accent:var(--future-violet)!important}.static-nav a:nth-child(3){--nav-accent:var(--future-teal)!important}.static-nav a:nth-child(4){--nav-accent:var(--future-rose)!important}
+.static-nav a,.om3-nav a,.om3-return{background:linear-gradient(145deg,rgba(243,241,246,.95),rgba(218,215,224,.91))!important}
+.static-nav a:hover,.static-nav a:focus-visible{box-shadow:7px 9px 0 color-mix(in srgb,var(--nav-accent) 27%,transparent),0 0 25px color-mix(in srgb,var(--nav-accent) 27%,transparent)!important}
+
+/* Hero com reflexos tecnológicos, não neon. */
 .hero-field{
-  background:linear-gradient(145deg,rgba(207,194,216,.82),rgba(197,207,189,.58))!important;
-  box-shadow:inset 0 0 70px rgba(87,67,99,.14)!important;
+  background:
+    radial-gradient(circle at 30% 28%,rgba(82,123,157,.19),transparent 34%),
+    radial-gradient(circle at 70% 68%,rgba(116,86,164,.18),transparent 34%),
+    linear-gradient(145deg,rgba(222,224,234,.90),rgba(215,226,219,.78))!important;
+  box-shadow:inset 0 0 80px rgba(72,65,90,.12)!important;
 }
-.project-callout{
-  background:rgba(126,99,145,.22)!important;
-  border-left-color:#765f85!important;
-}
+.field-ring{border-color:rgba(82,123,157,.42)!important}.ring-b{border-color:rgba(116,86,164,.40)!important}
+.project-callout{background:linear-gradient(90deg,rgba(116,86,164,.18),rgba(82,123,157,.10))!important;border-left-color:var(--future-violet)!important}
+.street-future i{color:var(--future-rose)!important}
 
-/* Cartões gerais com lilás e oliva mais perceptíveis. */
+/* Cartões alternam famílias cromáticas. */
 .about-grid article,.project-manifesto,.panel,.meta,.block,.manifesto,.path-step,.photo-zone,.photo-placeholder{
-  background:linear-gradient(145deg,#eee9f1,#ded5e4)!important;
-  border-color:rgba(78,66,87,.42)!important;
-  box-shadow:7px 9px 20px rgba(47,39,54,.13)!important;
+  background:linear-gradient(145deg,#f0edf4,#dddce5)!important;
+  border-color:rgba(74,71,87,.35)!important;
+  box-shadow:7px 10px 22px rgba(40,40,51,.12)!important;
 }
-.about-grid article:nth-child(2),.path-step:nth-child(even){
-  background:linear-gradient(145deg,#e8ede3,#d5dfce)!important;
-  border-color:rgba(81,92,69,.40)!important;
-}
-.about-grid article:after,.school-spotlight:after,.block:after{
-  border-right-color:#81708f!important;
-  border-top-color:#81708f!important;
-}
-.about-grid article>span,.panel-label span,.om3-section-tag,.om3-breadcrumb i{
-  color:#665472!important;
-}
+.about-grid article:nth-child(1),.path-step:nth-child(3n+1){background:linear-gradient(145deg,#edf2f5,#d8e2e9)!important}
+.about-grid article:nth-child(2),.path-step:nth-child(3n+2){background:linear-gradient(145deg,#edf2ec,#d9e4d6)!important}
+.about-grid article:nth-child(3),.path-step:nth-child(3n){background:linear-gradient(145deg,#f2ebef,#e4d5dd)!important}
+.about-grid article:nth-child(1):after{border-color:var(--future-blue)!important}.about-grid article:nth-child(2):after{border-color:var(--future-green)!important}.about-grid article:nth-child(3):after{border-color:var(--future-rose)!important}
+.about-grid article:hover,.panel:hover,.path-step:hover{transform:translateY(-6px);box-shadow:0 20px 38px rgba(39,38,49,.18),0 0 22px rgba(116,86,164,.09)!important}
+.project-manifesto:before{background:linear-gradient(90deg,var(--future-violet),var(--future-blue))!important}
+
+/* Escola e faixas escuras: grafite com reflexos coloridos. */
 .school-spotlight{
-  background:linear-gradient(135deg,#25252c,#343039)!important;
-  box-shadow:0 20px 38px rgba(31,27,35,.28)!important;
+  background:linear-gradient(125deg,#23252b 0%,#302b38 55%,#26332f 100%)!important;
+  box-shadow:0 20px 40px rgba(27,27,34,.28),0 0 24px rgba(79,130,125,.10)!important;
 }
-.school-spotlight>span{color:#c9b9d2!important}
+.school-spotlight:after{border-color:var(--future-teal)!important}.school-spotlight>span{color:#a8c6c1!important}
+.process-strip span,.practice-date,.project-badge{background:linear-gradient(135deg,#272931,#34313b)!important}
+.process-strip span:nth-child(4n+1){box-shadow:5px 6px 0 rgba(82,123,157,.38)!important}.process-strip span:nth-child(4n+2){box-shadow:5px 6px 0 rgba(116,86,164,.38)!important}.process-strip span:nth-child(4n+3){box-shadow:5px 6px 0 rgba(79,130,125,.38)!important}.process-strip span:nth-child(4n){box-shadow:5px 6px 0 rgba(160,100,126,.36)!important}
+.learn-more{background:linear-gradient(135deg,#ddd4e5,#d6e1e5)!important;border-color:var(--future-violet)!important;box-shadow:6px 7px 0 rgba(82,123,157,.20)!important}.learn-more:hover,.learn-more:focus-visible{background:linear-gradient(120deg,var(--future-violet),#665782)!important;color:#fff!important;box-shadow:7px 9px 0 rgba(82,123,157,.28),0 0 22px rgba(116,86,164,.24)!important}
 
-.process-strip span,.practice-date,.project-badge{
-  background:linear-gradient(135deg,#29282f,#39343e)!important;
-  box-shadow:5px 6px 0 rgba(92,107,78,.36)!important;
-}
-.process-strip span:nth-child(even){box-shadow:5px 6px 0 rgba(116,91,131,.40)!important}
-.learn-more{
-  background:#d8ccde!important;
-  border-color:#765f85!important;
-  box-shadow:6px 7px 0 rgba(76,61,86,.22)!important;
-}
-.learn-more:hover,.learn-more:focus-visible{
-  background:#765f85!important;
-  border-color:#765f85!important;
-  color:#f8f5fa!important;
-}
+/* Percurso: sequência cromática controlada. */
+.acronym-section,.contact-section,.om3-footer,.intro{background:linear-gradient(135deg,#1d2026 0%,#292634 52%,#21302c 100%)!important}
+.acronym-grid article{background:#252830!important;border-color:#464a56!important}.acronym-grid article:nth-child(4n+1) strong{color:#8eb0c9!important}.acronym-grid article:nth-child(4n+2) strong{color:#b59ac7!important}.acronym-grid article:nth-child(4n+3) strong{color:#92b2a3!important}.acronym-grid article:nth-child(4n) strong{color:#c79caf!important}.acronym-grid article.is-m3{background:linear-gradient(145deg,#393143,#303541)!important}
 
-/* Percurso e seções escuras ganham reflexos pigmentados. */
-.acronym-section,.contact-section,.om3-footer,.intro{
-  background:linear-gradient(145deg,#1f2023 0%,#29262d 55%,#252b23 100%)!important;
-}
-.acronym-grid article.is-m3{background:#44394a!important}
-.acronym-grid strong{color:#b9c5ad!important}
-.acronym-grid .is-m3 strong{color:#d0bddd!important}
+/* Práticas, anos e turmas: mais coloridos sem virar brinquedo. */
+.year-card,.class-card{background:linear-gradient(145deg,#dce7ed,#c9d9e2)!important;border-color:rgba(70,103,126,.42)!important;box-shadow:6px 8px 0 rgba(82,123,157,.20)!important}
+.year-card:nth-child(4n+2),.class-card:nth-child(4n+2){background:linear-gradient(145deg,#e4d9ea,#d1c1dc)!important;border-color:rgba(105,77,126,.42)!important;box-shadow:6px 8px 0 rgba(116,86,164,.20)!important}
+.year-card:nth-child(4n+3),.class-card:nth-child(4n+3){background:linear-gradient(145deg,#dce9e4,#c8dbd4)!important;border-color:rgba(67,111,105,.42)!important;box-shadow:6px 8px 0 rgba(79,130,125,.20)!important}
+.year-card:nth-child(4n),.class-card:nth-child(4n){background:linear-gradient(145deg,#eadde3,#d9c6d0)!important;border-color:rgba(128,79,101,.40)!important;box-shadow:6px 8px 0 rgba(160,100,126,.18)!important}
+.year-card:hover,.year-card.active,.class-card:hover{background:linear-gradient(135deg,#292b33,#35303e)!important;color:#fff!important;box-shadow:9px 11px 0 rgba(116,86,164,.28),0 0 24px rgba(82,123,157,.18)!important}
+.route-note,.purpose{background:linear-gradient(90deg,rgba(79,130,125,.20),rgba(102,125,88,.16))!important;border-left-color:var(--future-teal)!important}
 
-/* Práticas, turmas e registros. */
-.year-card,.class-card{
-  background:linear-gradient(145deg,#ddd1e3,#cbbdd3)!important;
-  border-color:rgba(80,65,90,.42)!important;
-  box-shadow:6px 8px 0 rgba(82,65,93,.18)!important;
-}
-.year-card:nth-child(even),.class-card:nth-child(even){
-  background:linear-gradient(145deg,#dce5d5,#c6d3bc)!important;
-  border-color:rgba(77,91,65,.40)!important;
-}
-.year-card:hover,.year-card.active,.class-card:hover{
-  background:#302d34!important;
-  box-shadow:9px 11px 0 rgba(111,87,126,.34)!important;
-}
-.route-note,.purpose{
-  background:rgba(105,124,88,.25)!important;
-  border-left-color:#59694c!important;
-}
-.mosaic-card{
-  background:linear-gradient(145deg,#ddd0e4,#c9bad2)!important;
-  box-shadow:8px 10px 0 rgba(104,80,118,.25)!important;
-}
-.mosaic-card:nth-child(even){
-  background:linear-gradient(145deg,#dce5d5,#c5d3bc)!important;
-  box-shadow:8px 10px 0 rgba(81,96,68,.25)!important;
-}
-.scrapbook-gallery{
-  background:radial-gradient(circle at 15% 20%,rgba(126,96,144,.34),transparent 30%),radial-gradient(circle at 80% 30%,rgba(96,116,79,.31),transparent 31%),#d8d0dc!important;
-}
-.scrap-card{
-  background:linear-gradient(145deg,#dfd2e5,#cbbbd4)!important;
-  box-shadow:11px 14px 26px rgba(39,31,45,.23)!important;
-}
-.scrap-card:nth-child(even){background:linear-gradient(145deg,#dce5d7,#c3d0ba)!important}
-.accessibility-panel{
-  background:rgba(103,123,86,.24)!important;
-  border-color:rgba(79,95,66,.70)!important;
-}
+/* Mosaicos e scrapbook com variedade editorial. */
+.mosaic-card{background:linear-gradient(145deg,#e0d5e7,#cdbdd8)!important;box-shadow:8px 10px 0 rgba(116,86,164,.22)!important}.mosaic-card:nth-child(3n+2){background:linear-gradient(145deg,#d8e6eb,#c5d9e2)!important;box-shadow:8px 10px 0 rgba(82,123,157,.22)!important}.mosaic-card:nth-child(3n){background:linear-gradient(145deg,#dbe8df,#c6d8ca)!important;box-shadow:8px 10px 0 rgba(79,130,125,.22)!important}
+.scrapbook-gallery{background:radial-gradient(circle at 15% 20%,rgba(116,86,164,.28),transparent 29%),radial-gradient(circle at 82% 26%,rgba(82,123,157,.23),transparent 29%),radial-gradient(circle at 70% 82%,rgba(160,100,126,.20),transparent 27%),radial-gradient(circle at 25% 80%,rgba(79,130,125,.20),transparent 27%),#d9d9e1!important}
+.scrap-card{background:linear-gradient(145deg,#e5d9eb,#d2c2dc)!important}.scrap-card:nth-child(4n+2){background:linear-gradient(145deg,#dce9ee,#c9dce5)!important}.scrap-card:nth-child(4n+3){background:linear-gradient(145deg,#dce9e2,#c8dbd0)!important}.scrap-card:nth-child(4n){background:linear-gradient(145deg,#eadce3,#dac7d1)!important}.scrap-card:before{background:rgba(116,86,164,.70)!important}.scrap-card:nth-child(4n+2):before{background:rgba(82,123,157,.70)!important}.scrap-card:nth-child(4n+3):before{background:rgba(79,130,125,.70)!important}.scrap-card:nth-child(4n):before{background:rgba(160,100,126,.68)!important}
 
-/* Contato e elementos globais. */
-.contact-card{
-  background:linear-gradient(145deg,rgba(58,50,64,.97),rgba(40,44,38,.97))!important;
-  border-color:#71617b!important;
-  box-shadow:10px 12px 0 rgba(106,82,120,.28)!important;
-}
-.contact-card dt{color:#c5b3ce!important}
-.orb-dot.gold{background:#81708f!important;box-shadow:0 0 10px rgba(129,112,143,.58)!important}
-.orb-dot.sage{background:#69795a!important;box-shadow:0 0 10px rgba(105,121,90,.52)!important}
-.orb-dot.lilac{background:#9a7faa!important}
-.orb-dot.cream{background:#aebb9f!important}
+/* Acessibilidade e contato. */
+.accessibility-panel{background:linear-gradient(120deg,rgba(79,130,125,.18),rgba(82,123,157,.12))!important;border-color:rgba(79,130,125,.62)!important}
+.contact-card{background:linear-gradient(135deg,rgba(52,45,61,.97),rgba(35,47,47,.97))!important;border-color:#665875!important;box-shadow:10px 12px 0 rgba(82,123,157,.20),0 0 24px rgba(116,86,164,.12)!important}.contact-card dt{color:#c1acd0!important}
 
-/*
-  IMPORTANTE: .subject-card fica fora destas sobrescritas.
-  As quatro matérias mantêm suas cores individuais e o brilho próprio.
-*/
+/* Partículas e detalhes orbitais multicoloridos. */
+.orb-dot.gold{background:var(--future-amber)!important;box-shadow:0 0 11px rgba(170,129,85,.46)!important}.orb-dot.sage{background:var(--future-green)!important;box-shadow:0 0 11px rgba(102,125,88,.46)!important}.orb-dot.lilac{background:var(--future-violet)!important;box-shadow:0 0 11px rgba(116,86,164,.48)!important}.orb-dot.cream{background:var(--future-blue)!important;box-shadow:0 0 11px rgba(82,123,157,.45)!important}
+
+/* As cores próprias dos botões das matérias permanecem intocadas. */
 
 @media(max-width:800px){
-  .topbar,.om3-header{background:rgba(207,197,214,.98)!important}
-  .about-grid article,.panel,.meta,.block{box-shadow:5px 7px 15px rgba(47,39,54,.12)!important}
+  .topbar,.om3-header{background:rgba(222,218,229,.94)!important}
+  .about-grid article,.panel,.meta,.block{box-shadow:5px 7px 16px rgba(40,40,51,.12)!important}
 }
