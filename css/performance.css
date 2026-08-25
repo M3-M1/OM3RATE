@@ -1,0 +1,99 @@
+/* Otimizações de desempenho do OM3RATE.
+   Mantém a aparência atual, mas reduz repinturas caras e desacelera movimentos. */
+
+/* A grade não precisa se mover para cumprir seu papel visual. Animação de
+   background-position repinta uma área enorme continuamente. */
+.moving-grid{
+  animation:none!important;
+}
+
+/* As luzes continuam flutuando, porém agora o movimento usa transform,
+   que é muito mais barato para o navegador do que animar dezenas de
+   background-position ao mesmo tempo. */
+.site-shell:before,.om3-shell:before{
+  animation:ambient-light-drift-lite 78s ease-in-out infinite alternate!important;
+  transform:translate3d(0,0,0);
+  backface-visibility:hidden;
+  contain:paint;
+  will-change:transform;
+}
+.site-shell:after,.om3-shell:after{
+  animation:ambient-light-float-lite 92s ease-in-out infinite alternate!important;
+  transform:translate3d(0,0,0);
+  backface-visibility:hidden;
+  contain:paint;
+  will-change:transform;
+}
+
+@keyframes ambient-light-drift-lite{
+  0%{transform:translate3d(-0.6%,0.35%,0) scale(1)}
+  50%{transform:translate3d(0.45%,-0.35%,0) scale(1.006)}
+  100%{transform:translate3d(0.8%,-0.55%,0) scale(1.01)}
+}
+@keyframes ambient-light-float-lite{
+  0%{transform:translate3d(-0.35%,0.35%,0) scale(1)}
+  100%{transform:translate3d(0.55%,-0.45%,0) scale(1.012)}
+}
+
+/* Robô com o livro e elementos orbitais: movimento mais contemplativo. */
+.robot-halo{
+  animation-duration:72s!important;
+  animation-timing-function:linear!important;
+}
+.robot-orbit.orbit-a{
+  animation-duration:58s!important;
+}
+.robot-orbit.orbit-b{
+  animation-duration:76s!important;
+}
+.ring-a{
+  animation-duration:58s!important;
+}
+.ring-b{
+  animation-duration:72s!important;
+}
+.ambient-orbit.orbit-one{
+  animation-duration:82s!important;
+}
+.ambient-orbit.orbit-two{
+  animation-duration:104s!important;
+}
+
+/* Caso a imagem do robô receba animação em outra folha, ela também fica lenta. */
+.robot-frame,.robot-frame img,.subject-visual img{
+  animation-duration:64s!important;
+  animation-timing-function:ease-in-out!important;
+}
+
+/* Faixa textual continua animada, mas com menos pressa. Transform é barato. */
+.motion-ribbon span{
+  animation-duration:60s!important;
+}
+
+/* Evita trabalho de composição desnecessário fora de interações. */
+.subject-card,.year-card,.class-card,.mosaic-card,.scrap-card,.panel{
+  will-change:auto!important;
+}
+
+/* Em celular reduzimos ainda mais o custo visual. */
+@media(max-width:800px){
+  .site-shell:before,.om3-shell:before{
+    animation-duration:96s!important;
+    filter:blur(1px) saturate(108%)!important;
+  }
+  .site-shell:after,.om3-shell:after{
+    animation-duration:112s!important;
+    filter:blur(18px) saturate(104%)!important;
+  }
+  .robot-halo{animation-duration:88s!important}
+  .robot-orbit.orbit-a{animation-duration:74s!important}
+  .robot-orbit.orbit-b{animation-duration:94s!important}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .moving-grid,.site-shell:before,.om3-shell:before,.site-shell:after,.om3-shell:after,
+  .robot-halo,.robot-orbit,.ring-a,.ring-b,.ambient-orbit,.motion-ribbon span,
+  .robot-frame,.robot-frame img,.subject-visual img{
+    animation:none!important;
+  }
+}
