@@ -1,3 +1,84 @@
 /* Estilo geral compartilhado por todo o OM3RATE. */
 @import "../app/globals.css";
 @import "../app/hope.css";
+
+/* Paleta unificada OM3RATE: lilás acinzentado + verde oliva acinzentado. */
+:root{
+  --ink:#1d1e22;
+  --ink-2:#2a2b31;
+  --paper:#efedf2;
+  --paper-2:#dddbe1;
+  --bone:#f6f4f7;
+  --steel:#7d818a;
+  --steel-light:#b9bcc2;
+  --sage:#87907f;
+  --lilac:#958da3;
+  --brass:#8f8996;
+  --olive:#7f8976;
+  --olive-light:#aab1a4;
+  --lilac-light:#d8d2dc;
+  --lilac-pale:#f0edf3;
+  --line:rgba(49,50,57,.24);
+}
+
+html,body{background:#efedf2!important;color:var(--ink)!important}
+.site-shell,.om3-shell{background:linear-gradient(135deg,#f3f0f5 0%,#eceaf0 46%,#eef0ec 100%)!important}
+
+/* Cabeçalhos e navegação */
+.topbar,.om3-header{background:rgba(223,219,227,.91)!important;border-color:rgba(91,88,101,.25)!important}
+.home-mark,.hero-brand-mark,.om3-mark{background:linear-gradient(145deg,#f2eff4,#dcd7e0)!important}
+.static-nav a,.om3-nav a,.om3-return{background:linear-gradient(145deg,#f4f1f5,#e0dce3)!important;border-color:rgba(91,88,101,.28)!important}
+.static-nav a:nth-child(1){--nav-accent:#7e838b!important}.static-nav a:nth-child(2){--nav-accent:#958da3!important}.static-nav a:nth-child(3){--nav-accent:#87907f!important}.static-nav a:nth-child(4){--nav-accent:#817b88!important}
+
+/* Caixas, cartões e painéis claros */
+.about-grid article,.project-manifesto,.panel,.meta,.block,.manifesto,.path-step,.photo-zone,.photo-placeholder,.contact-card{background:rgba(244,242,246,.62)!important;border-color:rgba(90,89,99,.24)!important}
+.year-card,.class-card,.placeholder,.mosaic-card,.scrap-card{background:#e4e2e6!important;border-color:rgba(88,88,97,.25)!important}
+.year-card:nth-child(even),.class-card:nth-child(even),.mosaic-card:nth-child(even){background:#dfe3dd!important}
+.scrapbook-gallery{background:radial-gradient(circle at 15% 20%,rgba(149,141,163,.15),transparent 30%),radial-gradient(circle at 82% 28%,rgba(127,137,118,.14),transparent 30%),#e9e7eb!important}
+.scrap-card img{background:#e2e0e4!important}
+
+/* Destaques lilás/oliva */
+.project-callout,.route-note,.purpose{background:rgba(127,137,118,.16)!important;border-color:var(--olive)!important}
+.project-manifesto:before,.mosaic-card:before{background:var(--lilac)!important}
+.about-grid article:after,.school-spotlight:after{border-color:var(--lilac)!important}
+.school-spotlight{background:#25262b!important}
+.school-spotlight>span,.om3-section-tag,.om3-breadcrumb i,.panel-label span,.intro span,.meta dt,.about-grid span,.project-actions>span,.acronym-heading span,.route-readout span,.panel-label span{color:#a8a0b2!important}
+.learn-more{background:#e2dfe6!important;border-color:#958da3!important;color:#25262b!important}
+.learn-more:hover{background:#958da3!important;color:#f6f4f7!important}
+
+/* Categorias do mapa de práticas */
+.subject-map,.knowledge-machine{background:linear-gradient(135deg,#e7e4e9,#dfe3dd)!important;border-color:rgba(80,82,86,.26)!important}
+.subject-links{background:rgba(214,218,210,.55)!important}
+.subject-card{background:#ece9ef!important;border-color:rgba(90,87,99,.26)!important}
+.subject-card:nth-child(1){--accent:#7f838c!important}.subject-card:nth-child(2){--accent:#958da3!important}.subject-card:nth-child(3){--accent:#87907f!important}.subject-card:nth-child(4){--accent:#817b88!important}
+.subject-card:hover{background:#2b2c31!important;color:#f5f3f6!important}
+
+/* Percurso e áreas escuras */
+.acronym-section,.contact-section,.om3-footer,.intro,.practice-date{background:#202126!important}
+.acronym-grid article.is-m3{background:#34343c!important}
+.acronym-grid .is-m3 strong{color:#b7aec1!important}
+.acronym-grid strong{color:#b8bcb6!important}
+.acronym-grid article,.acronym-grid{border-color:#494a50!important}
+
+/* Elementos decorativos antes dourados */
+.symbol-node,.ring-a:before,.ring-b:before,.ambient-orbit:after{fill:var(--lilac)!important;background:var(--lilac)!important}
+.primary-button span,.forge-core i,.wordmark small:before{color:#aaa2b3!important}
+.forge-core:after{border-color:#958da3!important}
+.street-future i{color:#87907f!important}
+.robot-halo{border-color:rgba(149,141,163,.42)!important}
+.orb-dot.gold{background:#958da3!important}.orb-dot.sage{background:#87907f!important}.orb-dot.lilac{background:#aaa0b7!important}.orb-dot.cream{background:#c8ccc4!important}
+
+/* Formulários/seleções e foco */
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline-color:#958da3!important}
+input,select,textarea{background:#f2eff4!important;border-color:#9e98a6!important;color:#25262b!important}
+
+/* Acessibilidade e coerência cromática */
+.accessibility-panel{background:rgba(135,144,127,.13)!important;border-color:rgba(135,144,127,.48)!important}
+.block:after{border-color:#958da3!important}
+.placeholder:hover{background:rgba(149,141,163,.14)!important}
+
+/* Mantém contraste no celular sem introduzir novas cores. */
+@media(max-width:800px){
+  .topbar,.om3-header{background:rgba(226,222,230,.96)!important}
+  .subject-links{background:rgba(224,227,220,.76)!important}
+}
