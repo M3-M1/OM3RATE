@@ -3,12 +3,13 @@
 @import "../app/hope.css";
 @import "./ajustes-paleta.css";
 @import "./performance.css";
+@import "./tech-redesign.css";
 
-/* Base histórica; ajustes globais finais são aplicados por ajustes-paleta.css. */
+/* Base histórica mantida por compatibilidade. O visual final é aplicado por tech-redesign.css. */
 :root{--ink:#172631;--ink-2:#1A334A;--paper:#e3e8ec;--paper-2:#b7c5cd;--bone:#edf2f5;--steel:#5f7684;--steel-light:#9eafb9;--sage:#18A3B7;--lilac:#6F71A1;--brass:#5AA5CD;--olive:#1E536E;--olive-dark:#1A334A;--olive-light:#5AA5CD;--lilac-dark:#55577f;--lilac-light:#9fa1c4;--lilac-pale:#e2e2ed;--cool-gray:#8fa1ac;--line:rgba(26,51,74,.34);--shadow:rgba(14,31,44,.20);--shadow-deep:rgba(8,20,29,.30)}
 html,body{color:var(--ink)!important}.static-nav a:hover,.om3-nav a:hover,.om3-return:hover{box-shadow:7px 9px 0 rgba(26,51,74,.22)!important}.about-grid article:hover,.path-step:hover,.panel:hover{box-shadow:0 18px 32px rgba(14,31,44,.20)!important}.process-strip span,.practice-date,.project-badge{color:#eef7fa!important}.acronym-heading span,.project-actions>span,.section-index.light{color:#9fc5d6!important}
 
-/* MAPA DE MATÉRIAS: cores EXATAS da paleta enviada. */
+/* MAPA DE MATÉRIAS: base histórica; sobrescrita pelo redesign tech. */
 .subject-map,.knowledge-machine{background:linear-gradient(135deg,#78909d 0%,#657f8d 100%)!important;border-color:rgba(26,51,74,.48)!important;box-shadow:0 20px 42px rgba(14,31,44,.22)!important}.subject-visual,.subject-stage{background:linear-gradient(150deg,#8ea2ad,#718a98)!important}.subject-links{background:linear-gradient(160deg,rgba(30,83,110,.68),rgba(26,51,74,.58))!important}
 .subject-card{position:relative;border:1px solid color-mix(in srgb,var(--accent) 62%,#1A334A)!important;color:#142b39!important;box-shadow:5px 7px 0 color-mix(in srgb,var(--accent) 28%,transparent)!important;isolation:isolate;overflow:visible!important}
 .subject-card:nth-child(1){--accent:#5AA5CD!important;--accent-soft:#5AA5CD!important;background:linear-gradient(135deg,color-mix(in srgb,#5AA5CD 48%,#dce7ed),color-mix(in srgb,#5AA5CD 28%,#c9d6df))!important}.subject-card:nth-child(2){--accent:#6F71A1!important;--accent-soft:#6F71A1!important;background:linear-gradient(135deg,color-mix(in srgb,#6F71A1 48%,#dfe1ea),color-mix(in srgb,#6F71A1 28%,#cfd3df))!important}.subject-card:nth-child(3){--accent:#18A3B7!important;--accent-soft:#18A3B7!important;background:linear-gradient(135deg,color-mix(in srgb,#18A3B7 46%,#dce8e9),color-mix(in srgb,#18A3B7 27%,#cadadd))!important}.subject-card:nth-child(4){--accent:#27E6EC!important;--accent-soft:#27E6EC!important;background:linear-gradient(135deg,color-mix(in srgb,#27E6EC 42%,#dfe9ea),color-mix(in srgb,#27E6EC 24%,#cddcdf))!important}
