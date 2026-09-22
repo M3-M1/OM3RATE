@@ -270,3 +270,63 @@ img{max-width:100%}
 @media(prefers-reduced-motion:reduce){
   .static-nav a,.om3-nav a,.om3-return,.about-grid article,.panel,.path-step,.mosaic-card,.scrap-card,.year-card,.class-card{transform:none!important}
 }
+
+
+/* MODIFICAÇÃO - MATÉRIAS
+   Contraste reforçado e novo símbolo de Educação Digital. */
+.subject-card strong{
+  color:#1b2230!important;
+  font-weight:600!important;
+  text-shadow:none!important;
+}
+.subject-card{
+  background:linear-gradient(135deg,#fbf9fd 0%,#f1edf5 55%,#e9e4ef 100%)!important;
+  border-color:rgba(255,255,255,.34)!important;
+}
+.subject-card:hover,.subject-card:focus-visible{
+  background:linear-gradient(135deg,#fff 0%,#f4f1f7 100%)!important;
+  color:#111722!important;
+}
+.subject-card:hover strong,.subject-card:focus-visible strong{
+  color:#111722!important;
+}
+.subject-card:nth-child(4) b{
+  position:relative!important;
+  display:block!important;
+  width:46px!important;
+  height:38px!important;
+  font-size:0!important;
+  color:transparent!important;
+  filter:none!important;
+}
+.subject-card:nth-child(4) b::before{
+  content:""!important;
+  position:absolute!important;
+  left:3px!important;
+  top:2px!important;
+  width:34px!important;
+  height:23px!important;
+  border:2px solid var(--accent)!important;
+  border-radius:4px!important;
+  background:linear-gradient(145deg,rgba(255,255,255,.24),rgba(109,159,176,.08))!important;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.28)!important;
+}
+.subject-card:nth-child(4) b::after{
+  content:"</>"!important;
+  position:absolute!important;
+  left:12px!important;
+  top:8px!important;
+  color:var(--accent)!important;
+  font:800 11px/1 var(--font-mono)!important;
+  letter-spacing:-1px!important;
+  text-shadow:none!important;
+}
+.subject-card:nth-child(4) strong::before{
+  content:""!important;
+  position:absolute!important;
+  width:42px!important;
+  height:2px!important;
+  background:var(--accent)!important;
+  transform:translate(-67px,31px)!important;
+  opacity:.9!important;
+}
