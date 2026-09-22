@@ -329,3 +329,24 @@ img{max-width:100%}
   box-shadow:0 5px 0 -1px var(--accent)!important;
 }
 .subject-card:nth-child(4) strong::before{display:none!important;content:none!important}
+
+/* Robô digital explícito no HTML publicado. */
+.subject-card-digital .digital-robot{
+  position:relative!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  width:42px!important;height:30px!important;flex:0 0 42px!important;
+  border:2px solid #6d9fb0!important;border-radius:9px!important;background:transparent!important;
+  color:#6d9fb0!important;font-size:0!important;box-shadow:none!important;
+}
+.subject-card-digital .digital-robot::before{
+  content:""!important;position:absolute!important;left:18px!important;top:-10px!important;width:4px!important;height:8px!important;
+  border-left:2px solid #6d9fb0!important;background:transparent!important;border-radius:0!important;
+}
+.subject-card-digital .digital-robot::after{
+  content:""!important;position:absolute!important;left:16px!important;top:-13px!important;width:5px!important;height:5px!important;
+  border:2px solid #6d9fb0!important;border-radius:50%!important;background:#f1edf5!important;
+}
+.subject-card-digital .digital-robot-face{
+  display:block!important;color:#6d9fb0!important;font:700 12px/1 Arial,sans-serif!important;letter-spacing:3px!important;
+  transform:translateX(1px)!important;
+}
+.subject-card-digital strong::before{display:none!important;content:none!important}
