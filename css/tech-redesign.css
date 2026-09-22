@@ -273,7 +273,7 @@ img{max-width:100%}
 
 
 /* MODIFICAÇÃO - MATÉRIAS
-   Contraste reforçado e novo símbolo de Educação Digital. */
+   Contraste reforçado e ícone simples de robô feliz para Educação Digital. */
 .subject-card strong{
   color:#1b2230!important;
   font-weight:600!important;
@@ -287,46 +287,45 @@ img{max-width:100%}
   background:linear-gradient(135deg,#fff 0%,#f4f1f7 100%)!important;
   color:#111722!important;
 }
-.subject-card:hover strong,.subject-card:focus-visible strong{
-  color:#111722!important;
-}
+.subject-card:hover strong,.subject-card:focus-visible strong{color:#111722!important}
+
+/* Robô feliz minimalista: cabeça + antena + olhos sorrindo. */
 .subject-card:nth-child(4) b{
   position:relative!important;
   display:block!important;
-  width:46px!important;
-  height:38px!important;
+  width:48px!important;
+  height:42px!important;
   font-size:0!important;
   color:transparent!important;
   filter:none!important;
 }
 .subject-card:nth-child(4) b::before{
-  content:""!important;
+  content:"⌒  ⌒"!important;
+  box-sizing:border-box!important;
   position:absolute!important;
-  left:3px!important;
-  top:2px!important;
-  width:34px!important;
-  height:23px!important;
+  left:4px!important;
+  top:9px!important;
+  width:40px!important;
+  height:29px!important;
   border:2px solid var(--accent)!important;
-  border-radius:4px!important;
-  background:linear-gradient(145deg,rgba(255,255,255,.24),rgba(109,159,176,.08))!important;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.28)!important;
+  border-radius:10px!important;
+  background:rgba(255,255,255,.20)!important;
+  color:var(--accent)!important;
+  font:800 12px/18px var(--font-sans,Arial,sans-serif)!important;
+  letter-spacing:-1px!important;
+  text-align:center!important;
+  box-shadow:none!important;
 }
 .subject-card:nth-child(4) b::after{
-  content:"</>"!important;
-  position:absolute!important;
-  left:12px!important;
-  top:8px!important;
-  color:var(--accent)!important;
-  font:800 11px/1 var(--font-mono)!important;
-  letter-spacing:-1px!important;
-  text-shadow:none!important;
-}
-.subject-card:nth-child(4) strong::before{
   content:""!important;
   position:absolute!important;
-  width:42px!important;
-  height:2px!important;
-  background:var(--accent)!important;
-  transform:translate(-67px,31px)!important;
-  opacity:.9!important;
+  left:22px!important;
+  top:1px!important;
+  width:5px!important;
+  height:5px!important;
+  border:2px solid var(--accent)!important;
+  border-radius:50%!important;
+  background:#f5f1f8!important;
+  box-shadow:0 5px 0 -1px var(--accent)!important;
 }
+.subject-card:nth-child(4) strong::before{display:none!important;content:none!important}
