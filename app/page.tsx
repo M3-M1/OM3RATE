@@ -102,7 +102,7 @@ const subjects: Record<SubjectId, SubjectRecord> = {
   },
   digital: {
     name: "Educação Digital",
-    symbol: "01",
+    symbol: "☺",
     thesis: "Fazer do código uma linguagem de pensamento e autoria.",
     years: {
       "2026": [
