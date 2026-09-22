@@ -350,3 +350,30 @@ img{max-width:100%}
   transform:translateX(1px)!important;
 }
 .subject-card-digital strong::before{display:none!important;content:none!important}
+
+/* MODIFICAÇÃO - ROBÔ SIMPLES
+   Ícone reduzido a um rosto de robô limpo e legível. */
+.subject-card-digital .digital-robot{
+  position:relative!important;display:inline-block!important;box-sizing:border-box!important;
+  width:38px!important;height:31px!important;flex:0 0 38px!important;
+  border:2px solid #6d9fb0!important;border-radius:8px!important;
+  background:rgba(255,255,255,.16)!important;color:#6d9fb0!important;
+  font-size:0!important;box-shadow:none!important;filter:none!important;
+}
+.subject-card-digital .digital-robot::before{
+  content:""!important;position:absolute!important;left:17px!important;top:-8px!important;
+  width:2px!important;height:7px!important;background:#6d9fb0!important;border:0!important;
+}
+.subject-card-digital .digital-robot::after{
+  content:""!important;position:absolute!important;left:14px!important;top:-12px!important;
+  width:6px!important;height:6px!important;background:#6d9fb0!important;border:0!important;border-radius:50%!important;
+}
+.subject-card-digital .digital-robot-eyes{
+  position:absolute!important;display:block!important;left:0!important;top:4px!important;width:100%!important;
+  color:#6d9fb0!important;font:700 12px/1 Arial,sans-serif!important;letter-spacing:5px!important;text-align:center!important;
+  transform:translateX(2px)!important;
+}
+.subject-card-digital .digital-robot-smile{
+  position:absolute!important;display:block!important;left:0!important;bottom:2px!important;width:100%!important;
+  color:#6d9fb0!important;font:700 15px/1 Arial,sans-serif!important;text-align:center!important;
+}
