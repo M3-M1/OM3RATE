@@ -430,3 +430,33 @@ img{max-width:100%}
   transform:translate(-50%,-50%)!important;
   text-align:center!important;
 }
+
+/* MODIFICAÇÃO - CENTRALIZAÇÃO FORÇADA
+   Regra final para o HTML efetivamente publicado pelo Pages. */
+.subject-map .subject-links.subject-links-centered > a.subject-card.subject-card-centered{
+  display:flex!important;
+  flex-direction:row!important;
+  align-items:center!important;
+  justify-content:center!important;
+  place-items:center!important;
+  text-align:center!important;
+  padding:0 20px!important;
+  min-height:92px!important;
+}
+.subject-map .subject-links.subject-links-centered > a.subject-card.subject-card-centered > .subject-card-label{
+  display:block!important;
+  position:static!important;
+  inset:auto!important;
+  float:none!important;
+  flex:0 1 auto!important;
+  width:auto!important;
+  max-width:90%!important;
+  margin:0 auto!important;
+  padding:0!important;
+  transform:none!important;
+  text-align:center!important;
+  white-space:normal!important;
+  color:#1b2230!important;
+  font-family:var(--font-serif,Georgia,serif)!important;
+  font-weight:600!important;
+}
