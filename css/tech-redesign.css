@@ -395,3 +395,17 @@ img{max-width:100%}
   display:block!important;width:50px!important;height:34px!important;object-fit:contain!important;
   mix-blend-mode:multiply!important;opacity:.72!important;filter:saturate(.55) hue-rotate(145deg)!important;
 }
+
+/* MODIFICAÇÃO - BOTÕES CENTRALIZADOS */
+.subject-links .subject-card{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  text-align:center!important;
+  grid-template-columns:1fr!important;
+}
+.subject-links .subject-card strong{
+  width:100%!important;
+  text-align:center!important;
+  margin:0!important;
+}
