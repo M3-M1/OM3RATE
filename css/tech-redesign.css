@@ -381,3 +381,17 @@ img{max-width:100%}
 /* MODIFICAÇÃO - QUÍMICA */
 .subject-card-chemistry{--accent:#78939f!important;--accent-soft:#9fb3bb!important}
 .subject-card-chemistry b{color:var(--accent)!important;font-family:Georgia,serif!important;font-size:30px!important;font-weight:400!important}
+
+/* MODIFICAÇÃO - ÍCONE DIGITAL
+   Usa a referência enviada para Educação Digital. */
+.subject-card-digital .digital-icon-image{
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  width:52px!important;height:42px!important;flex:0 0 52px!important;
+  border:0!important;background:transparent!important;box-shadow:none!important;filter:none!important;
+}
+.subject-card-digital .digital-icon-image::before,
+.subject-card-digital .digital-icon-image::after{display:none!important;content:none!important}
+.subject-card-digital .digital-icon-image img{
+  display:block!important;width:50px!important;height:34px!important;object-fit:contain!important;
+  mix-blend-mode:multiply!important;opacity:.72!important;filter:saturate(.55) hue-rotate(145deg)!important;
+}
