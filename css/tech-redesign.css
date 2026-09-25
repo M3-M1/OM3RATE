@@ -409,3 +409,24 @@ img{max-width:100%}
   text-align:center!important;
   margin:0!important;
 }
+
+/* MODIFICAÇÃO - CENTRO EXATO
+   Neutraliza a grade histórica dos cartões e fixa o título no centro geométrico. */
+.subject-links .subject-card{
+  position:relative!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  padding-left:18px!important;
+  padding-right:18px!important;
+}
+.subject-links .subject-card strong{
+  position:absolute!important;
+  left:50%!important;
+  top:50%!important;
+  width:max-content!important;
+  max-width:calc(100% - 36px)!important;
+  margin:0!important;
+  transform:translate(-50%,-50%)!important;
+  text-align:center!important;
+}
