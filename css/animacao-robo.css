@@ -1,111 +1,251 @@
-/* Movimento do guardião do mapa de práticas.
-   Mantém a imagem original intacta e acrescenta movimento por CSS. */
+/* Animação articulada do guardião OM3RATE.
+   A mesma imagem é reutilizada em recortes sobrepostos para simular articulações. */
 
-.subject-visual .robot-character{
+.subject-visual{
+  isolation:isolate;
+}
+
+.subject-visual .robot-rig{
   position:absolute;
   left:50%;
   bottom:0;
-  width:min(92%,460px);
+  width:min(58%,268px);
   height:610px;
   transform:translateX(-50%);
-  transform-origin:50% 82%;
+  transform-origin:50% 84%;
   z-index:4;
-  animation:om3-robot-float 6.8s ease-in-out infinite;
-  will-change:transform;
   pointer-events:none;
+  animation:om3-rig-float 7.2s ease-in-out infinite;
+  will-change:transform;
 }
 
-.subject-visual .robot-character .robot-base{
+/* Imagem original permanece como base para evitar falhas entre os recortes. */
+.subject-visual .robot-rig .robot-base{
   position:absolute!important;
   inset:0!important;
   width:100%!important;
   height:100%!important;
-  object-fit:contain!important;
-  object-position:center bottom!important;
+  object-fit:fill!important;
   left:auto!important;
   bottom:auto!important;
   transform:none!important;
   filter:drop-shadow(0 24px 30px rgba(18,28,37,.25))!important;
-  z-index:2!important;
-  animation:om3-robot-breathe 5.6s ease-in-out infinite;
-  will-change:transform,filter;
+  z-index:1!important;
 }
 
-/* Pulso visual próximo ao astrolábio. */
-.subject-visual .robot-character::before{
-  content:"";
+/* Cada peça usa exatamente a mesma imagem e mostra apenas uma região. */
+.subject-visual .robot-part{
   position:absolute;
-  left:5%;
-  top:18%;
-  width:34%;
-  aspect-ratio:1;
-  border-radius:50%;
-  background:
-    radial-gradient(circle,transparent 0 42%,rgba(199,167,93,.18) 43% 48%,transparent 49%),
-    conic-gradient(from 0deg,transparent 0 18%,rgba(199,167,93,.76) 20% 23%,transparent 25% 52%,rgba(39,230,236,.50) 54% 57%,transparent 59% 100%);
-  filter:drop-shadow(0 0 10px rgba(199,167,93,.35));
-  opacity:.62;
-  transform-origin:center;
-  animation:om3-astrolabe-orbit 8.5s linear infinite;
+  inset:0;
+  width:100%;
+  height:100%;
+  background-image:url("../public/robot-astrolabe.webp");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:100% 100%;
   z-index:3;
-  mix-blend-mode:screen;
+  pointer-events:none;
+  will-change:transform;
+  transform:translateZ(0);
 }
 
-/* Brilho suave na região do livro, como se as páginas respirassem luz. */
-.subject-visual .robot-character::after{
+/* CABEÇA */
+.subject-visual .robot-head{
+  clip-path:polygon(35% 2%,64% 2%,69% 11%,65% 22%,56% 27%,41% 25%,33% 17%);
+  transform-origin:50% 22%;
+  animation:om3-head 5.6s ease-in-out infinite;
+}
+
+/* TRONCO E OMBROS */
+.subject-visual .robot-torso{
+  clip-path:polygon(27% 17%,71% 16%,82% 30%,75% 58%,59% 68%,35% 64%,21% 42%);
+  transform-origin:50% 54%;
+  animation:om3-torso 6.4s ease-in-out infinite;
+}
+
+/* BRAÇO ESQUERDO, lado do astrolábio */
+.subject-visual .robot-left-upper{
+  clip-path:polygon(17% 20%,38% 22%,39% 38%,27% 49%,13% 42%,8% 31%);
+  transform-origin:34% 28%;
+  animation:om3-left-upper 5.1s ease-in-out infinite;
+}
+
+.subject-visual .robot-left-forearm{
+  clip-path:polygon(2% 27%,24% 28%,30% 46%,18% 58%,3% 49%,0 37%);
+  transform-origin:22% 36%;
+  animation:om3-left-forearm 5.1s ease-in-out infinite;
+}
+
+/* ASTROLÁBIO */
+.subject-visual .robot-astrolabe{
+  clip-path:circle(17% at 11% 23%);
+  transform-origin:11% 23%;
+  animation:om3-astrolabe 10s linear infinite;
+  z-index:5;
+  filter:drop-shadow(0 0 8px rgba(199,167,93,.35));
+}
+
+/* BRAÇO DIREITO, lado do livro */
+.subject-visual .robot-right-upper{
+  clip-path:polygon(61% 19%,83% 23%,90% 36%,82% 48%,68% 43%,57% 30%);
+  transform-origin:67% 27%;
+  animation:om3-right-upper 5.8s ease-in-out infinite;
+}
+
+.subject-visual .robot-right-forearm{
+  clip-path:polygon(66% 36%,94% 36%,98% 52%,88% 59%,69% 50%);
+  transform-origin:73% 43%;
+  animation:om3-right-forearm 5.8s ease-in-out infinite;
+}
+
+/* LIVRO */
+.subject-visual .robot-book{
+  clip-path:polygon(53% 27%,100% 26%,100% 46%,89% 51%,62% 48%,51% 39%);
+  transform-origin:74% 43%;
+  animation:om3-book 5.2s ease-in-out infinite;
+  z-index:5;
+}
+
+/* QUADRIL */
+.subject-visual .robot-hips{
+  clip-path:polygon(31% 53%,70% 52%,74% 72%,60% 77%,39% 76%,27% 67%);
+  transform-origin:50% 63%;
+  animation:om3-hips 6.8s ease-in-out infinite;
+}
+
+/* PERNAS */
+.subject-visual .robot-left-leg{
+  clip-path:polygon(25% 63%,51% 64%,48% 100%,22% 100%,19% 83%);
+  transform-origin:42% 69%;
+  animation:om3-left-leg 7.2s ease-in-out infinite;
+}
+
+.subject-visual .robot-right-leg{
+  clip-path:polygon(48% 62%,72% 61%,82% 100%,49% 100%);
+  transform-origin:58% 69%;
+  animation:om3-right-leg 7.2s ease-in-out infinite;
+}
+
+/* FAIXAS E TECIDO: oscilam com atraso em relação ao corpo. */
+.subject-visual .robot-cloth{
+  clip-path:polygon(18% 18%,80% 19%,91% 86%,76% 95%,63% 75%,49% 95%,27% 91%,12% 71%);
+  transform-origin:50% 27%;
+  animation:om3-cloth 6.9s ease-in-out infinite;
+  z-index:4;
+  opacity:.94;
+}
+
+/* halo sutil para integrar os recortes ao fundo */
+.subject-visual .robot-rig::after{
   content:"";
   position:absolute;
-  right:1%;
-  top:31%;
-  width:45%;
-  height:23%;
-  background:radial-gradient(ellipse at center,rgba(244,225,176,.28),rgba(156,144,172,.11) 45%,transparent 72%);
-  filter:blur(5px);
-  opacity:.5;
-  transform:rotate(-4deg);
-  transform-origin:50% 50%;
-  animation:om3-book-glow 5.2s ease-in-out infinite;
-  z-index:1;
+  inset:8% -19% 3%;
+  border-radius:48%;
+  background:radial-gradient(ellipse at 50% 45%,rgba(39,230,236,.08),rgba(156,144,172,.05) 38%,transparent 69%);
+  filter:blur(12px);
+  z-index:0;
+  animation:om3-rig-halo 6s ease-in-out infinite;
 }
 
-@keyframes om3-robot-float{
-  0%,100%{transform:translateX(-50%) translateY(0) rotate(-.25deg)}
-  35%{transform:translateX(-50%) translateY(-9px) rotate(.35deg)}
-  68%{transform:translateX(-50%) translateY(-4px) rotate(-.15deg)}
+/* movimento geral */
+@keyframes om3-rig-float{
+  0%,100%{transform:translateX(-50%) translateY(0) rotate(-.18deg)}
+  48%{transform:translateX(-50%) translateY(-8px) rotate(.22deg)}
 }
 
-@keyframes om3-robot-breathe{
-  0%,100%{transform:scale(1);filter:drop-shadow(0 24px 30px rgba(18,28,37,.25))}
-  50%{transform:scale(1.006);filter:drop-shadow(0 30px 36px rgba(18,28,37,.31))}
+/* cabeça faz um pequeno gesto de leitura */
+@keyframes om3-head{
+  0%,18%,100%{transform:rotate(0) translate(0,0)}
+  45%{transform:rotate(1.5deg) translate(1px,-1px)}
+  72%{transform:rotate(-.8deg) translate(-1px,1px)}
 }
 
-@keyframes om3-astrolabe-orbit{
-  from{transform:rotate(0deg) scale(.98);opacity:.42}
-  50%{opacity:.78}
-  to{transform:rotate(360deg) scale(.98);opacity:.42}
+/* respiração mecânica */
+@keyframes om3-torso{
+  0%,100%{transform:scale(1) translateY(0)}
+  50%{transform:scale(1.004,1.007) translateY(-1px)}
 }
 
-@keyframes om3-book-glow{
-  0%,100%{transform:translateY(0) rotate(-4deg) scale(.98);opacity:.34}
-  50%{transform:translateY(-5px) rotate(-2.5deg) scale(1.04);opacity:.66}
+/* braço que sustenta o astrolábio */
+@keyframes om3-left-upper{
+  0%,100%{transform:rotate(0)}
+  50%{transform:rotate(-1.8deg) translateY(-1px)}
+}
+
+@keyframes om3-left-forearm{
+  0%,100%{transform:rotate(0) translate(0,0)}
+  50%{transform:rotate(-2.5deg) translate(-1px,-2px)}
+}
+
+/* o disco gira, mas devagar para continuar parecendo um objeto físico */
+@keyframes om3-astrolabe{
+  from{transform:rotate(0)}
+  to{transform:rotate(360deg)}
+}
+
+/* braço que sustenta o livro */
+@keyframes om3-right-upper{
+  0%,100%{transform:rotate(0)}
+  50%{transform:rotate(1.3deg) translateY(-1px)}
+}
+
+@keyframes om3-right-forearm{
+  0%,100%{transform:rotate(0) translate(0,0)}
+  50%{transform:rotate(1.9deg) translate(1px,-2px)}
+}
+
+@keyframes om3-book{
+  0%,100%{transform:rotate(0) translateY(0)}
+  45%{transform:rotate(-1.1deg) translateY(-2px) scale(1.003)}
+  72%{transform:rotate(.6deg) translateY(-1px)}
+}
+
+/* quadril reage em oposição aos ombros */
+@keyframes om3-hips{
+  0%,100%{transform:translateX(0) rotate(0)}
+  50%{transform:translateX(-1px) rotate(-.35deg)}
+}
+
+/* pernas em microcontrapeso, sem parecer caminhada */
+@keyframes om3-left-leg{
+  0%,100%{transform:rotate(0) translateY(0)}
+  50%{transform:rotate(.45deg) translateY(1px)}
+}
+
+@keyframes om3-right-leg{
+  0%,100%{transform:rotate(0) translateY(0)}
+  50%{transform:rotate(-.45deg) translateY(-1px)}
+}
+
+@keyframes om3-cloth{
+  0%,100%{transform:skewX(0deg) translateX(0)}
+  50%{transform:skewX(.45deg) translateX(1px)}
+}
+
+@keyframes om3-rig-halo{
+  0%,100%{opacity:.45;transform:scale(.985)}
+  50%{opacity:.78;transform:scale(1.018)}
 }
 
 @media(max-width:800px){
-  .subject-visual .robot-character{
+  .subject-visual .robot-rig{
+    width:min(57%,211px);
     height:480px;
-    width:min(92%,380px);
-  }
-  .subject-visual .robot-character::before{
-    left:4%;
-    top:17%;
   }
 }
 
+@media(max-width:520px){
+  .subject-visual .robot-rig{
+    width:min(60%,202px);
+    height:460px;
+  }
+}
+
+/* Acessibilidade: respeita preferência por menos movimento. */
 @media(prefers-reduced-motion:reduce){
-  .subject-visual .robot-character,
-  .subject-visual .robot-character .robot-base,
-  .subject-visual .robot-character::before,
-  .subject-visual .robot-character::after{
+  .subject-visual .robot-rig,
+  .subject-visual .robot-part,
+  .subject-visual .robot-rig::after{
     animation:none!important;
   }
 }
