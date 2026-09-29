@@ -1,54 +1,16 @@
-/* OM3RATE — guardião em 25 quadros com transição interpolada. */
+/* Guardião OM3RATE — versão estável sem animação experimental. */
 
-.subject-visual{
-  isolation:isolate;
-}
-
-.subject-visual .robot-frame-animation{
-  position:absolute;
-  left:50%;
+.subject-visual > img{
   bottom:0;
-  width:290px;
   height:610px;
+  left:50%;
+  object-fit:contain;
+  position:absolute;
   transform:translateX(-50%);
   z-index:4;
-  pointer-events:none;
-}
-
-.subject-visual #robot-source{
-  display:none!important;
-}
-
-.subject-visual #robot-canvas{
-  display:block;
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  image-rendering:auto;
   filter:drop-shadow(0 22px 34px rgba(18,28,37,.24));
 }
 
-.subject-visual .robot-frame-animation::after{
-  content:"";
-  position:absolute;
-  inset:8% -19% 3%;
-  z-index:-1;
-  border-radius:50%;
-  background:radial-gradient(ellipse at 50% 45%,rgba(39,230,236,.07),rgba(156,144,172,.05) 38%,transparent 68%);
-  filter:blur(14px);
-  opacity:.64;
-}
-
 @media(max-width:800px){
-  .subject-visual .robot-frame-animation{
-    width:228px;
-    height:480px;
-  }
-}
-
-@media(max-width:520px){
-  .subject-visual .robot-frame-animation{
-    width:218px;
-    height:460px;
-  }
+  .subject-visual > img{height:480px}
 }
