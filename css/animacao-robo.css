@@ -29,7 +29,8 @@
   left:auto!important;
   bottom:auto!important;
   transform:none!important;
-  filter:drop-shadow(0 24px 30px rgba(18,28,37,.25))!important;
+  filter:brightness(.82) saturate(.72) drop-shadow(0 24px 30px rgba(18,28,37,.25))!important;
+  opacity:.14!important;
   z-index:1!important;
 }
 
@@ -43,7 +44,7 @@
   background-repeat:no-repeat;
   background-position:center;
   background-size:100% 100%;
-  z-index:3;
+  z-index:4;
   pointer-events:none;
   will-change:transform;
   transform:translateZ(0);
@@ -81,8 +82,8 @@
   clip-path:circle(17% at 11% 23%);
   transform-origin:11% 23%;
   animation:om3-astrolabe 10s linear infinite;
-  z-index:5;
-  filter:drop-shadow(0 0 8px rgba(199,167,93,.35));
+  z-index:7;
+  filter:drop-shadow(0 0 10px rgba(199,167,93,.46));
 }
 
 /* BRAÇO DIREITO, lado do livro */
@@ -103,7 +104,7 @@
   clip-path:polygon(53% 27%,100% 26%,100% 46%,89% 51%,62% 48%,51% 39%);
   transform-origin:74% 43%;
   animation:om3-book 5.2s ease-in-out infinite;
-  z-index:5;
+  z-index:7;
 }
 
 /* QUADRIL */
@@ -131,8 +132,8 @@
   clip-path:polygon(18% 18%,80% 19%,91% 86%,76% 95%,63% 75%,49% 95%,27% 91%,12% 71%);
   transform-origin:50% 27%;
   animation:om3-cloth 6.9s ease-in-out infinite;
-  z-index:4;
-  opacity:.94;
+  z-index:3;
+  opacity:.96;
 }
 
 /* halo sutil para integrar os recortes ao fundo */
@@ -156,70 +157,70 @@
 /* cabeça faz um pequeno gesto de leitura */
 @keyframes om3-head{
   0%,18%,100%{transform:rotate(0) translate(0,0)}
-  45%{transform:rotate(1.5deg) translate(1px,-1px)}
-  72%{transform:rotate(-.8deg) translate(-1px,1px)}
+  45%{transform:rotate(4.2deg) translate(3px,-4px)}
+  72%{transform:rotate(-2.4deg) translate(-2px,2px)}
 }
 
 /* respiração mecânica */
 @keyframes om3-torso{
-  0%,100%{transform:scale(1) translateY(0)}
-  50%{transform:scale(1.004,1.007) translateY(-1px)}
+  0%,100%{transform:scale(1) translateY(0) rotate(0)}
+  50%{transform:scale(1.012,1.018) translateY(-3px) rotate(.45deg)}
 }
 
 /* braço que sustenta o astrolábio */
 @keyframes om3-left-upper{
   0%,100%{transform:rotate(0)}
-  50%{transform:rotate(-1.8deg) translateY(-1px)}
+  50%{transform:rotate(-5deg) translate(-3px,-4px)}
 }
 
 @keyframes om3-left-forearm{
   0%,100%{transform:rotate(0) translate(0,0)}
-  50%{transform:rotate(-2.5deg) translate(-1px,-2px)}
+  50%{transform:rotate(-7deg) translate(-5px,-6px)}
 }
 
 /* o disco gira, mas devagar para continuar parecendo um objeto físico */
 @keyframes om3-astrolabe{
-  from{transform:rotate(0)}
-  to{transform:rotate(360deg)}
+  0%,100%{transform:rotate(-2deg) translate(0,0) scale(1)}
+  50%{transform:rotate(5deg) translate(-2px,-4px) scale(1.025)}
 }
 
 /* braço que sustenta o livro */
 @keyframes om3-right-upper{
   0%,100%{transform:rotate(0)}
-  50%{transform:rotate(1.3deg) translateY(-1px)}
+  50%{transform:rotate(4deg) translate(3px,-3px)}
 }
 
 @keyframes om3-right-forearm{
   0%,100%{transform:rotate(0) translate(0,0)}
-  50%{transform:rotate(1.9deg) translate(1px,-2px)}
+  50%{transform:rotate(6deg) translate(5px,-5px)}
 }
 
 @keyframes om3-book{
   0%,100%{transform:rotate(0) translateY(0)}
-  45%{transform:rotate(-1.1deg) translateY(-2px) scale(1.003)}
-  72%{transform:rotate(.6deg) translateY(-1px)}
+  45%{transform:rotate(-3deg) translate(3px,-6px) scale(1.018)}
+  72%{transform:rotate(1.5deg) translate(1px,-2px) scale(1.006)}
 }
 
 /* quadril reage em oposição aos ombros */
 @keyframes om3-hips{
   0%,100%{transform:translateX(0) rotate(0)}
-  50%{transform:translateX(-1px) rotate(-.35deg)}
+  50%{transform:translateX(-3px) rotate(-1.1deg)}
 }
 
 /* pernas em microcontrapeso, sem parecer caminhada */
 @keyframes om3-left-leg{
   0%,100%{transform:rotate(0) translateY(0)}
-  50%{transform:rotate(.45deg) translateY(1px)}
+  50%{transform:rotate(1.8deg) translate(-2px,3px)}
 }
 
 @keyframes om3-right-leg{
   0%,100%{transform:rotate(0) translateY(0)}
-  50%{transform:rotate(-.45deg) translateY(-1px)}
+  50%{transform:rotate(-1.8deg) translate(2px,-3px)}
 }
 
 @keyframes om3-cloth{
-  0%,100%{transform:skewX(0deg) translateX(0)}
-  50%{transform:skewX(.45deg) translateX(1px)}
+  0%,100%{transform:skewX(0deg) translateX(0) rotate(0)}
+  50%{transform:skewX(1.3deg) translateX(4px) rotate(.8deg)}
 }
 
 @keyframes om3-rig-halo{
