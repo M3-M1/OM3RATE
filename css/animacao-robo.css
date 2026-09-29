@@ -1,64 +1,17 @@
-/* OM3RATE — guardião animado em 25 quadros.
-   O movimento é pré-renderizado no navegador por app/animacao-robo-25.js. */
+/* Guardião OM3RATE — versão estável.
+   A animação quadro a quadro experimental foi removida para preservar a arte original. */
 
-.subject-visual{
-  isolation:isolate;
-}
-
-.subject-visual .robot-frame-animation{
-  position:absolute;
-  left:50%;
+.subject-visual > img{
   bottom:0;
-  width:290px;
   height:610px;
+  left:50%;
+  object-fit:contain;
+  position:absolute;
   transform:translateX(-50%);
   z-index:4;
-  pointer-events:none;
-}
-
-.subject-visual .robot-frame-animation::after{
-  content:"";
-  position:absolute;
-  inset:7% -22% 2%;
-  z-index:-1;
-  border-radius:50%;
-  background:
-    radial-gradient(ellipse at 48% 42%,rgba(39,230,236,.08),rgba(156,144,172,.06) 38%,transparent 68%);
-  filter:blur(14px);
-  opacity:.72;
-}
-
-.subject-visual #robot-source{
-  display:none!important;
-}
-
-.subject-visual #robot-canvas{
-  display:block;
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  filter:drop-shadow(0 24px 30px rgba(18,28,37,.27));
-  image-rendering:auto;
+  filter:drop-shadow(0 22px 34px rgba(18,28,37,.24));
 }
 
 @media(max-width:800px){
-  .subject-visual .robot-frame-animation{
-    width:228px;
-    height:480px;
-  }
-}
-
-@media(max-width:520px){
-  .subject-visual .robot-frame-animation{
-    width:218px;
-    height:460px;
-  }
-}
-
-/* A preferência do sistema é tratada também pelo JavaScript:
-   nesse caso apenas o primeiro dos 25 quadros é exibido. */
-@media(prefers-reduced-motion:reduce){
-  .subject-visual .robot-frame-animation::after{
-    opacity:.45;
-  }
+  .subject-visual > img{height:480px}
 }
