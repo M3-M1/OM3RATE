@@ -142,16 +142,15 @@
     off.width = W;
     off.height = H;
     const ctx = off.getContext('2d', {alpha:true});
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
     const p = TAU * index / FRAME_COUNT;
 
     ctx.clearRect(0,0,W,H);
 
-    // Base completa com leve deslocamento vertical para que toda a figura respire.
+    // A base permanece parada: somente o personagem muda entre os 25 quadros.
     const floatY = -3.2 * Math.sin(p);
-    ctx.save();
-    ctx.translate(0,floatY);
     ctx.drawImage(source,0,0,W,H);
-    ctx.restore();
 
     // Retira as posições originais das regiões móveis.
     for (const part of parts) clearPart(ctx, part);
@@ -171,6 +170,8 @@
     canvas.width = W;
     canvas.height = H;
     const ctx = canvas.getContext('2d',{alpha:true});
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
 
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       ctx.clearRect(0,0,W,H);
